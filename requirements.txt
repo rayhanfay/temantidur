@@ -1,0 +1,8 @@
+fastapi
+uvicorn
+python-dotenv
+requests
+firebase-admin
+python-multipart
+azure-cognitiveservices-speech
+openai>=1.82.1

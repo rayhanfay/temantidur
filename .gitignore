@@ -1,0 +1,33 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.pkl
+*.sqlite3
+
+# Environment
+.env
+firebase-adminsdk.json
+
+# VSCode
+.vscode/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Virtual Environment
+venv/
+ENV/
+env/
+.venv/
+
+# Docker files
+*.tar
+
+# Other
+.idea/
