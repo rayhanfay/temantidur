@@ -1,20 +1,21 @@
 # TemanTidur API 🌙✨
 
-**TemanTidur** adalah AI companion khusus untuk remaja yang merasa kesepian di malam hari. API ini menyediakan layanan chat AI, deteksi emosi dari gambar, dan voice chat untuk membantu remaja mengatasi overthinking dan kesepian.
+**TemanTidur** is an AI companion specifically designed for teenagers who feel lonely at night. This API provides AI chat services, emotion detection from images, and voice chat to help teenagers overcome overthinking and loneliness.
 
-## 🚀 Fitur Utama
+## 🚀 Main Features
 
-- **💬 Chat AI**: Percakapan empati dengan AI yang memahami perasaan remaja
-- **😊 Deteksi Emosi**: Analisis emosi dari foto wajah menggunakan Azure Custom Vision
-- **🎤 Voice Chat**: Komunikasi suara dengan AI (format WAV)
-- **🌍 Multi-bahasa**: Mendukung Bahasa Indonesia dan English
-- **🔐 Firebase Authentication**: Keamanan dengan token Firebase
+- **💬 AI Chat**: Empathetic conversations with AI that understands teenage feelings
+- **😊 Emotion Detection**: Emotion analysis from facial photos using Azure Custom Vision
+- **🚴 Activity Recommendations**: Provides positive activities based on emotion analysis results
+- **🎤 Voice Chat**: Voice communication with AI (WAV format)
+- **🌍 Multi-language**: Supports Indonesian and English
+- **🔐 Firebase Authentication**: Security with Firebase tokens
 
 ## 📋 Prerequisites
 
 - Python 3.8+
 - Azure Cognitive Services Account
-- Firebase Project dengan Authentication
+- Firebase Project with Authentication
 - Azure OpenAI Access
 
 ## 🛠️ Installation
@@ -34,7 +35,7 @@ pip install -r requirements.txt
 
 ### 3. Environment Configuration
 
-Buat file `.env` di root project:
+Create a `.env` file in the project root:
 
 ```env
 # Azure Custom Vision
@@ -57,14 +58,14 @@ FIREBASE_JSON={"type":"service_account","project_id":"your-project",...}
 
 ### 4. Run Server
 
-**Development Mode** (tanpa Firebase Auth):
+**Development Mode** (without Firebase Auth):
 
 ```bash
-# Uncomment development endpoints di main.py
+# Uncomment development endpoints in main.py
 uvicorn main:app --reload
 ```
 
-**Production Mode** (dengan Firebase Auth):
+**Production Mode** (with Firebase Auth):
 
 ```bash
 uvicorn main:app --host 0.0.0.0 --port 8000
@@ -72,7 +73,7 @@ uvicorn main:app --host 0.0.0.0 --port 8000
 
 ## 📚 API Documentation
 
-📖 **Dokumentasi lengkap**: https://documenter.getpostman.com/view/39192802/2sB2qi9JHZ
+📖 **Complete documentation**: https://documenter.getpostman.com/view/39192802/2sB2qi9JHZ
 
 ### Base URL
 
@@ -82,7 +83,7 @@ https://your-domain.com/
 
 ### Authentication
 
-Semua endpoint memerlukan Firebase ID Token:
+All endpoints require Firebase ID Token:
 
 ```http
 Authorization: Bearer <firebase_id_token>
@@ -96,9 +97,9 @@ Authorization: Bearer <firebase_id_token>
 GET /
 ```
 
-Informasi dasar API dan endpoint yang tersedia.
+Basic API information and available endpoints.
 
-### 2. Chat AI
+### 2. AI Chat
 
 ```http
 POST /chat
@@ -109,7 +110,7 @@ Authorization: Bearer <token>
   "messages": [
     {
       "role": "user",
-      "content": "Aku merasa sedih malam ini"
+      "content": "I feel sad tonight"
     }
   ],
   "max_tokens": 200,
@@ -121,11 +122,11 @@ Authorization: Bearer <token>
 
 ```json
 {
-  "reply": "Aku mengerti kamu sedang merasa sedih malam ini. Aku di sini untuk mendengarkan. Mau cerita apa yang bikin kamu merasa seperti ini? 🌙💙"
+  "reply": "I understand you're feeling sad tonight. I'm here to listen. Would you like to share what's making you feel this way? 🌙💙"
 }
 ```
 
-### 3. Deteksi Emosi
+### 3. Emotion Detection
 
 ```http
 POST /detect-emotion
@@ -139,10 +140,10 @@ image: <file.jpg>
 
 ```json
 {
-  "emotion": "sedih",
+  "emotion": "sad",
   "confidence": 0.85,
-  "recommendation": "Aku bisa lihat kamu sedang merasa sedih malam ini. Coba dengarkan musik menenangkan atau tuliskan perasaanmu di journal. Aku di sini bersamamu. 💙",
-  "message": "Aku bisa melihat dari ekspresi wajah kamu bahwa kamu sedang merasa sedih malam ini. Terima kasih sudah mau berbagi perasaanmu dengan aku! 🌙✨"
+  "recommendation": "I can see you're feeling sad tonight. Try listening to calming music or writing your feelings in a journal. I'm here with you. 💙",
+  "message": "I can see from your facial expression that you're feeling sad tonight. Thank you for sharing your feelings with me! 🌙✨"
 }
 ```
 
@@ -160,11 +161,11 @@ audio: <file.wav>
 
 - Content-Type: `audio/wav`
 - Headers:
-  - `X-User-Text`: Teks yang diucapkan user
-  - `X-AI-Text`: Respons AI dalam teks
-- Body: Audio WAV dari respons AI
+  - `X-User-Text`: Text spoken by user
+  - `X-AI-Text`: AI response in text
+- Body: WAV audio of AI response
 
-## 🏗️ Struktur Project
+## 🏗️ Project Structure
 
 ```
 teman-tidur-api/
@@ -187,31 +188,31 @@ teman-tidur-api/
 
 ### Multi-Language Support
 
-- **Deteksi otomatis**: API mendeteksi bahasa dari input user
+- **Automatic detection**: API automatically detects language from user input
 
 ### Error Handling
 
-- **Azure Content Filter**: Respons khusus saat konten difilter
-- **Network Issues**: Fallback responses untuk masalah koneksi
-- **Rate Limiting**: Handling untuk rate limit Azure
-- **Validation**: Error handling untuk format file dan input
+- **Azure Content Filter**: Specific responses when content is filtered
+- **Network Issues**: Fallback responses for connection problems
+- **Rate Limiting**: Handling for Azure rate limits
+- **Validation**: Error handling for file formats and input
 
 ### Audio Processing
 
-- **Format**: Hanya mendukung WAV format
+- **Format**: Only supports WAV format
 - **Transcription**: Azure Speech-to-Text
-- **Synthesis**: Azure Text-to-Speech dengan voice neural
+- **Synthesis**: Azure Text-to-Speech with neural voice
 - **Languages**:
   - Indonesian: `id-ID-GadisNeural`
   - English: `en-US-JennyNeural`
 
 ## 🔍 Monitoring & Logging
 
-API menggunakan Python logging untuk monitoring:
+API uses Python logging for monitoring:
 
-- Info level untuk operasi normal
-- Warning untuk content filtering
-- Error untuk exceptions dan failures
+- Info level for normal operations
+- Warning for content filtering
+- Error for exceptions and failures
 
 ## 🚀 Deployment
 
@@ -239,10 +240,10 @@ CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000"]
 
 ## 🛡️ Security
 
-- **Firebase Authentication**: Token verification untuk setiap request
-- **Input Validation**: Validasi format file dan ukuran
+- **Firebase Authentication**: Token verification for every request
+- **Input Validation**: File format and size validation
 - **Content Filtering**: Azure Content Safety integration
-- **Rate Limiting**: Handling built-in dari Azure services
+- **Rate Limiting**: Built-in handling from Azure services
 
 ## 🤝 Contributing
 
@@ -254,10 +255,10 @@ CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000"]
 
 ## 🙏 Acknowledgments
 
-- **Azure Cognitive Services** untuk AI capabilities
-- **Firebase** untuk authentication
-- **FastAPI** untuk web framework
-- **OpenAI** untuk conversational AI
+- **Azure Cognitive Services** for AI capabilities
+- **Firebase** for authentication
+- **FastAPI** for web framework
+- **OpenAI** for conversational AI
 
 ---
 
