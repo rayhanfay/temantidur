@@ -1,0 +1,509 @@
+<resources>
+    <string name="register_title">Please Enter Your Personal Information</string>
+    <string name="email_form">Email</string>
+    <string name="username_form">Username</string>
+    <string name="password_form">Password</string>
+    <string name="confirm_password_form">Confirm Password</string>
+    <string name="email_hint">Type your email…</string>
+    <string name="username_hint">Type your username…</string>
+    <string name="password_hint">Type your password…</string>
+    <string name="confirm_password_hint">Retype your password…</string>
+    <string name="register_hint">Don\'t have an account?</string>
+    <string name="login_hint">Already have an account?</string>
+    <string name="register_suggestion">Please Register</string>
+    <string name="login_suggestion">Please Login</string>
+    <string name="login_button">Login</string>
+    <string name="register_button">Register</string>
+    <string name="login_success">Successful!</string>
+    <string name="login_success_message">Teman Tidur is waiting for you…</string>
+    <string name="next_button">Next</string>
+    <string name="login_failed">Oops!</string>
+    <string name="login_failed_message">Something seems wrong…</string>
+    <string name="retry_button">Retry</string>
+    <string name="otp_title">Enter OTP Code</string>
+    <string name="otp_hint">Didn\'t receive the code?</string>
+    <string name="otp_suggestion">Resend</string>
+
+    <string name="success_message">Operation completed successfully.</string>
+    <string name="success_icon_description">Success checkmark icon</string>
+    <string name="ok_button">OK</string>
+
+    <!--  Dialog Confirmation  -->
+    <string name="confirmation_title">Confirmation</string>
+    <string name="confirmation_message">Are you sure you want to continue with this action?</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+    <string name="confirmation_icon_description">Warning icon for confirmation</string>
+
+    <string name="failed_message">An error occurred. Please try again.</string>
+    <string name="failed_icon_description">Cross mark icon for failure</string>
+
+    <!--  Dialog Logout Confirmation  -->
+    <string name="logout_title">Logout Confirmation</string>
+    <string name="logout_message">Are you sure you want to log out of this account?</string>
+
+    <!-- Main Menu -->
+    <!-- Toolbar -->
+    <string name="greeting_evening">Good Evening</string>
+    <string name="settings">Settings</string>
+
+    <!-- Navigation Menu -->
+    <string name="nav_chat">Chat</string>
+    <string name="nav_voice_assistant">Voice Assistant</string>
+    <string name="nav_emotion_check">Emotion Check</string>
+
+    <!-- Content Descriptions for Accessibility -->
+    <string name="desc_settings_button">Settings button</string>
+    <string name="desc_chat_button">Chat button</string>
+    <string name="desc_voice_button">Voice assistant button</string>
+    <string name="desc_emotion_button">Emotion check button</string>
+
+    <!-- Status Bar -->
+    <string name="time_placeholder">12:30</string>
+    <string name="recap_saya">My Recap</string>
+    <string name="rekomendasi_kegiatan">Activity Recommendations</string>
+    <string name="background_logo">Background Logo</string>
+    <string name="logo_teman_tidur">Teman Tidur Logo</string>
+
+    <!--  Sidebar  -->
+    <string name="my_profile">My Profile</string>
+    <string name="recommendation">Recommendations</string>
+    <string name="language">Language</string>
+    <string name="about_us">About Us</string>
+    <string name="logout">Logout</string>
+    <string name="daily_reminder">Daily Reminder</string>
+    <string name="app_version">App Version 1.0</string>
+
+    <!--  Change Password  -->
+    <string name="change_password_title">Change Password</string>
+    <string name="current_password_form">Current Password</string>
+    <string name="current_password_hint">Enter your current password</string>
+    <string name="new_password_form">New Password</string>
+    <string name="new_password_hint">Enter new password</string>
+    <string name="confirm_new_password_form">Confirm New Password</string>
+    <string name="confirm_new_password_hint">Confirm your new password</string>
+    <string name="change_password_button">Change Password</string>
+
+    <!--  Change Email  -->
+    <string name="change_email_title">Change Email Address</string>
+    <string name="current_email_form">Current Email Address</string>
+    <string name="current_email_hint">Enter your current email address</string>
+    <string name="new_email_form">New Email Address</string>
+    <string name="new_email_hint">Enter your new email address</string>
+    <string name="change_email_button">Change Email</string>
+
+    <!--  Change Username  -->
+    <string name="change_username">Change Username</string>
+    <string name="current_username_form">Current Username</string>
+    <string name="current_username_hint">Enter your current username</string>
+    <string name="new_username_form">New Username</string>
+    <string name="new_username_hint">Enter new username</string>
+    <string name="change_username_button">Change Username</string>
+
+    <!--  Fragment Profile  -->
+    <string name="user_name">User Name</string>
+    <string name="change_email">Change Email</string>
+    <string name="change_password">Change Password</string>
+
+    <!--  Fragment About Us  -->
+    <string name="about_us_desc">Teman Tidur app is an AI-based solution application that can be a companion for teenagers who feel lonely at night. This app is similar to a chatbot with added features like visual emotion detection with supportive interactions\n\nTeman Tidur was created as an initial step to maintain mental health, especially for teenagers who are still emotionally and behaviorally vulnerable. This app is expected to have a positive impact, especially in realizing Indonesia\'s golden generation</string>
+    <string name="people_behind">People behind this project:</string>
+    <string name="people_1">Rayhan</string>
+    <string name="github_profile_of_person_1">%1$s GitHub Profile</string>
+    <string name="people_2">Hashfi</string>
+    <string name="github_profile_of_person_2">%1$s GitHub Profile</string>
+    <string name="people_3">Agus</string>
+    <string name="github_profile_of_person_3">%1$s GitHub Profile</string>
+
+    <!--  Onboarding  -->
+    <string name="onboarding_title_1">Hi Friend!</string>
+    <string name="onboarding_title_desc_1">Welcome to Teman Tidur</string>
+    <string name="onboarding_title_2">More Than Just a Friend</string>
+    <string name="onboarding_title_desc_2">Teman Tidur is ready to listen to your concerns!</string>
+    <string name="onboarding_title_3">For You</string>
+    <string name="onboarding_title_desc_3">Embrace Your Heart Anytime</string>
+    <string name="onboarding_description_1">Teman Tidur is an app that helps accompany your nights with a friend ready to listen to you anytime and anywhere.</string>
+    <string name="onboarding_description_2">Teman Tidur is equipped with chat features like chatting with a friend, listening to your night stories and seeing your facial expressions.</string>
+    <string name="onboarding_description_3">Think of me as your comfy shadow, tell me everything and I will always be there for you.</string>
+    <string name="skip">Skip</string>
+    <string name="finish">Finish</string>
+    <string name="login">Login</string>
+    <string name="register">Account Registration</string>
+    <string name="welcome">Welcome</string>
+    <string name="onboarding_description_placeholder">Onboarding description will be displayed here.</string>
+    <string name="cancel_button">Cancel</string>
+    <string name="title_onboarding">Onboarding Title</string>
+    <string name="title_desc_onboarding">Onboarding Title Description</string>
+    <string name="onboarding_desc">Onboarding Description</string>
+    <string name="user_email">User Email</string>
+
+    <!-- Daily Reminder -->
+    <string name="reminder_enabled">Daily reminder enabled</string>
+    <string name="reminder_disabled">Daily reminder disabled</string>
+    <string name="alarm_permission_needed">Alarm permission is needed to set reminders</string>
+    <string name="daily_reminder_channel_name">Daily Reminder</string>
+    <string name="daily_reminder_channel_description">Teman Tidur daily reminder notifications</string>
+    <string name="daily_reminder_title">Time to Rest!</string>
+    <string name="daily_reminder_message">Don\'t forget to prepare for quality sleep tonight 😴</string>
+    <string name="daily_reminder_notification">Don\'t forget to record your financial transactions today!</string>
+
+    <string name="permission_required_message">%1$s permission is required to continue. Please allow for optimal app experience.</string>
+    <string name="permission_manual_enable_message">%1$s permission is permanently denied. Enable manually in app settings.</string>
+    <string name="sedang_mengetik">Teman Tidur is typing...</string>
+    <string name="save">Save</string>
+
+    <!-- Login Validation Messages -->
+    <string name="error_email_required">Email must be filled</string>
+    <string name="error_email_invalid">Invalid email format</string>
+    <string name="error_password_required">Password must be filled</string>
+    <string name="error_password_min_length">Password minimum 6 characters</string>
+
+    <!-- Login Success -->
+    <string name="login_success_title">Login Successful</string>
+
+    <!-- Login Error Messages -->
+    <string name="error_email_not_registered">Email not registered</string>
+    <string name="error_invalid_credentials">Wrong email or password</string>
+    <string name="error_too_many_attempts_title">Login Restricted</string>
+    <string name="error_too_many_attempts_message">Too many failed login attempts. Your account is temporarily blocked. Please try again later or reset your password.</string>
+
+    <!-- Error Messages for Account Issues -->
+    <string name="error_account_disabled_title">Account Disabled</string>
+    <string name="error_account_disabled_message">Your account has been disabled. Please contact administrator for more information.</string>
+
+    <!-- Network Error -->
+    <string name="error_network_title">Network Problem</string>
+    <string name="error_network_message">Internet connection problem occurred. Check your connection and try again.</string>
+
+    <!-- Data Not Found -->
+    <string name="error_data_not_found_title">Data Not Found</string>
+    <string name="error_data_not_found_message">User data not found in database. Please contact administrator.</string>
+
+    <!-- Login Failed -->
+    <string name="error_login_failed_title">Login Failed</string>
+    <string name="error_login_failed_unknown_message">An unknown error occurred. Please try again or contact administrator.</string>
+    <string name="error_login_failed_message">Login failed: %1$s</string>
+
+    <!-- Registration validation messages -->
+    <string name="error_username_required">Username is required</string>
+    <string name="error_username_min_length">Username must be at least 3 characters</string>
+    <string name="error_confirm_password_required">Password confirmation is required</string>
+    <string name="error_password_mismatch">Passwords do not match</string>
+
+    <!-- Dialog titles -->
+    <string name="dialog_registration_success">Registration Successful</string>
+    <string name="dialog_registration_failed">Registration Failed</string>
+
+    <!-- Chat Activity Messages -->
+    <string name="error_play_ai_audio">Failed to play AI audio</string>
+    <string name="error_stop_recording_first">Please stop recording first.</string>
+
+    <!-- Dialog Messages -->
+    <string name="dialog_clear_chat_title">Clear Chat History</string>
+    <string name="dialog_clear_chat_message">Are you sure you want to delete all chats?</string>
+    <string name="button_delete">Delete</string>
+    <string name="button_cancel">Cancel</string>
+
+    <!-- Date Separators -->
+    <string name="date_today">Today</string>
+    <string name="date_yesterday">Yesterday</string>
+
+    <!-- Camera Activity -->
+    <string name="camera_permission_required">Camera permission is required to use this feature.</string>
+    <string name="auth_init_failed">Failed to initialize authentication. Please log in again.</string>
+    <string name="init_error">An error occurred during initialization: %s</string>
+    <string name="camera_start_failed">Failed to start camera: %s</string>
+    <string name="photo_capture_failed">Failed to take photo: %s</string>
+    <string name="analysis_failed">Analysis failed: %s</string>
+    <string name="general_error">An error occurred: %s</string>
+    <string name="processing_photo">Processing photo, please wait...</string>
+
+    <!-- Emotion Results -->
+    <string name="emotion_happy_title">You Look Happy!</string>
+    <string name="emotion_sad_title">I Can See You\'re Feeling Sad</string>
+    <string name="emotion_angry_title">You Look Upset</string>
+    <string name="emotion_surprised_title">Wow, You Look Surprised!</string>
+    <string name="emotion_neutral_title">Your Expression is Quite Calm</string>
+    <string name="emotion_unknown_title">Hmm, I Detected Something</string>
+    <string name="emotion_unknown">Unknown</string>
+    <string name="no_ai_description">No description from AI.</string>
+
+    <!-- Home Fragment -->
+    <string name="hows_your_day">How\'s Your Day %s</string>
+    <string name="no_emotion_data">No previous emotion data available</string>
+
+    <!-- Default Recommendations -->
+    <string name="default_recommendation_1">Do enjoyable activities</string>
+    <string name="default_recommendation_2">Get enough rest</string>
+    <string name="default_recommendation_3">Interact with loved ones</string>
+
+    <string name="notification_permission_required">The app requires notification permission for daily reminders.</string>
+    <string name="exact_alarm_permission_required">Please allow Set alarms and reminders for daily reminders.</string>
+    <string name="daily_reminder_enabled">Daily reminder enabled at %s</string>
+    <string name="daily_reminder_disabled">Daily reminder disabled</string>
+    <string name="logout_failed">Logout failed. Please try again.</string>
+    <string name="exit_app_title">Exit App</string>
+    <string name="exit_app_message">Are you sure you want to exit TemanTidur?</string>
+    <string name="no_daily_recap_available">No daily recap available yet.\nStart chatting to create a recap!</string>
+    <string name="onboarding_permission_rejected">Some permissions were denied. Features may not work properly.</string>
+
+    <!-- Recommendation -->
+    <string name="recommendation_title">Recommendation %1$d</string>
+    <string name="recommendation_activity_happy">Activity Recommendations to Keep You Happy</string>
+    <string name="recommendation_activity_sad">Activity Recommendations to Lift Your Spirits</string>
+    <string name="recommendation_activity_angry">Activity Recommendations to Calm Your Mind</string>
+    <string name="recommendation_activity_anxious">Activity Recommendations to Ease Anxiety</string>
+    <string name="recommendation_activity_stressed">Activity Recommendations to Relieve Stress</string>
+    <string name="recommendation_activity_tired">Activity Recommendations to Restore Energy</string>
+    <string name="recommendation_activity_lonely">Activity Recommendations to Feel More Connected</string>
+    <string name="recommendation_activity_frustrated">Activity Recommendations to Release Frustration</string>
+    <string name="recommendation_activity_neutral">Activity Recommendations for You</string>
+
+    <string name="silahkan_pose_apa_adanya">Please pose naturally</string>
+    <string name="aku_akan_coba_memahamimu">I will try to understand you</string>
+    <string name="chat_hint">Type a message...</string>
+    <string name="send_message_desc">Send Message</string>
+    <string name="rekomendasi_aktivitas">Activity Recommendations</string>
+    <string name="ubah_username_title">Change Username</string>
+    <string name="langkah_selanjutnya_dialog">Next Steps</string>
+    <string name="email_change_instruction">After you click the verification link in the email:\n\n1. Return to this app\n2. Logout and login again\n3. Your email will change automatically</string>
+    <string name="mengerti">Understood</string>
+    <string name="nanti">Later</string>
+    <string name="btnback_description">Back</string>
+    <string name="btnrecord_description">Record Voice</string>
+    <string name="btnsend_description">Send Message</string>
+    <string name="emotion_result_description">Emotion Result</string>
+    <string name="emotion_result">You Are Feeling Confused</string>
+    <string name="message_emotion_result">lorem ipsum</string>
+    <string name="rekomendasi_aktivitas_button">Activity Recommendations</string>
+    <string name="how_s_your_day">How\'s Your Day</string>
+    <string name="recap_button">My Recap</string>
+    <string name="rekomendasi_button">Recommendations</string>
+    <string name="cerita_denganku">Tell me your story</string>
+    <string name="cerita_denganku_hint">Tap to write your story</string>
+    <string name="pilih_bahasa">Choose Language</string>
+    <string name="bahasa_indonesia">Indonesian</string>
+    <string name="bahasa_inggris">English</string>
+    <string name="recap_beberapa_terakhir">Recent Recaps</string>
+    <string name="empty_recap_hint">No daily recaps available yet.\nStart chatting to create a recap!</string>
+    <string name="saran_ai">✨ AI Suggestions Just For You</string>
+
+    <!-- Profile Screen -->
+    <string name="user_default_name">User</string>
+    <string name="email_not_available">Email not available</string>
+
+    <!-- Dialog Titles -->
+    <string name="success_title">Success!</string>
+    <string name="failed_title">Failed!</string>
+    <string name="error_title">Error</string>
+
+    <!-- Buttons -->
+    <string name="btn_change_username">Change Username</string>
+    <string name="btn_change_email">Change Email</string>
+    <string name="btn_change_password">Change Password</string>
+    <string name="btn_logout">Logout</string>
+    <string name="btn_cancel">Cancel</string>
+    <string name="btn_ok">OK</string>
+
+    <!-- Username Change Dialog -->
+    <string name="current_username_label">Current Username</string>
+    <string name="new_username_label">New Username</string>
+    <string name="username_empty_error">New username cannot be empty</string>
+    <string name="username_min_length_error">Username must be at least 3 characters</string>
+    <string name="username_max_length_error">Username maximum 20 characters</string>
+    <string name="username_invalid_chars_error">Username can only contain letters, numbers, underscore, and dots</string>
+    <string name="username_same_as_current_error">New username is the same as current username</string>
+
+    <!-- Email Change Dialog -->
+    <string name="current_email_label">Current Email</string>
+    <string name="new_email_label">New Email</string>
+    <string name="current_password_label">Current Password</string>
+    <string name="new_email_empty_error">New email must be filled</string>
+    <string name="email_invalid_format_error">Invalid email format</string>
+    <string name="password_required_verification_error">Password required for verification</string>
+
+    <!-- Password Change Dialog -->
+    <string name="new_password_label">New Password</string>
+    <string name="confirm_new_password_label">Confirm New Password</string>
+    <string name="current_password_empty_error">Current password must be filled</string>
+    <string name="new_password_empty_error">New password must be filled</string>
+    <string name="password_min_length_error">Password minimum 6 characters</string>
+    <string name="confirm_password_empty_error">Password confirmation must be filled</string>
+    <string name="password_mismatch_error">Password confirmation does not match</string>
+
+    <!-- Authentication Error Messages -->
+    <string name="user_not_found_error">User not found</string>
+    <string name="wrong_password_error">Wrong password</string>
+    <string name="network_error">Internet connection problem</string>
+    <string name="password_verification_failed_error">Password verification failed: %1$s</string>
+    <string name="email_already_in_use_error">Email is already used by another account</string>
+    <string name="send_verification_failed_error">Failed to send verification email</string>
+
+    <!-- Email Verification -->
+    <string name="email_verification_sent_title">Verification Email Sent!</string>
+    <string name="email_verification_sent_message">Verification email has been sent to %1$s. Please open your email and click the verification link to complete the email change.</string>
+
+    <!-- Email Change Instructions -->
+    <string name="email_change_instructions_title">Email Change Instructions</string>
+    <string name="email_change_instructions_message">To complete the email change:\n\n1. Open your email at %1$s\n2. Look for email from Firebase\n3. Click the verification link\n4. Log in again with new email</string>
+
+    <!-- Daily Reminder Notification Channel -->
+    <string name="notification_channel_name">TemanTidur Daily Reminder</string>
+    <string name="notification_channel_description">Reminders to check emotions, activities, and chat.</string>
+
+    <!-- Daily Reminder Notification -->
+    <string name="notification_title">It\'s TemanTidur Time!</string>
+    <string name="notification_text">Let\'s check your emotions, complete activities, and chat with TemanTidur!</string>
+    <string name="notification_big_text">Let\'s check your emotions, complete activities, and chat with TemanTidur! Don\'t forget to take care of your mental health today.</string>
+
+    <!-- Empty state messages -->
+    <string name="recap_no_activity">No chat activity recorded today.</string>
+    <string name="recap_quiet_day">A quiet day, just listening without much storytelling.</string>
+
+    <!-- Activity level descriptions -->
+    <string name="recap_very_active_day">A very active day with lots of stories</string>
+    <string name="recap_quite_active_day">A day with quite a lot to share</string>
+    <string name="recap_some_moments_day">A day with some moments shared</string>
+    <string name="recap_quite_quiet_day">A fairly quiet day</string>
+    <string name="recap_active_day">A fairly active day with many stories</string>
+    <string name="recap_shared_moments_day">A day with some shared moments</string>
+    <string name="recap_quiet_day_activity">A quiet day</string>
+
+    <!-- Emotional states -->
+    <string name="recap_very_positive_mood">with a very positive mood</string>
+    <string name="recap_more_pleasant_moments">with more pleasant moments</string>
+    <string name="recap_heavy_emotional_challenges">with some fairly heavy emotional challenges</string>
+    <string name="recap_normal_emotional_ups_downs">with normal emotional ups and downs</string>
+    <string name="recap_stable_emotions">with fairly stable emotions</string>
+    <string name="recap_stable_mood">with fairly stable moods</string>
+
+    <!-- Positive emotion variants -->
+    <string name="recap_positive_mood_1">with a fairly positive mood</string>
+    <string name="recap_positive_mood_2">colored with pleasant moments</string>
+    <string name="recap_positive_mood_3">full of positive energy</string>
+    <string name="recap_positive_mood_4">with overall good feelings</string>
+
+    <!-- Negative emotion variants -->
+    <string name="recap_negative_mood_1">despite some challenges faced</string>
+    <string name="recap_negative_mood_2">with some emotional ups and downs</string>
+    <string name="recap_negative_mood_3">with some challenging moments</string>
+    <string name="recap_negative_mood_4">though not everything went smoothly</string>
+
+    <!-- Activity descriptions -->
+    <string name="recap_main_focus">Today\'s main focus was %1$s</string>
+    <string name="recap_activities_include">Activities included %1$s</string>
+    <string name="recap_various_activities">A day full of various activities</string>
+    <string name="recap_lots_of_details">Lots of details shared today</string>
+
+    <!-- Encouraging endings -->
+    <string name="recap_ending_1">Stay strong for the days ahead! 💪</string>
+    <string name="recap_ending_2">Every day is a new learning experience. 🌟</string>
+    <string name="recap_ending_3">Keep going, you\'re doing great! ✨</string>
+    <string name="recap_ending_4">Thank you for sharing your stories today. 💙</string>
+
+    <string name="recap_generation_error">Failed to load daily recap</string>
+    <string name="edit_profile_picture">Edit Profile Picture</string>
+
+    <!-- Activity keywords -->
+    <string-array name="activity_keywords">
+        <item>work</item>
+        <item>college</item>
+        <item>school</item>
+        <item>meeting</item>
+        <item>study</item>
+        <item>exercise</item>
+        <item>walk</item>
+        <item>eat</item>
+        <item>sleep</item>
+        <item>watch</item>
+        <item>play</item>
+    </string-array>
+
+    <!-- Emotion keywords -->
+    <string-array name="positive_emotions">
+        <item>happy</item>
+        <item>glad</item>
+        <item>joyful</item>
+        <item>excited</item>
+        <item>enthusiastic</item>
+        <item>satisfied</item>
+        <item>relieved</item>
+        <item>proud</item>
+        <item>grateful</item>
+        <item>thankful</item>
+    </string-array>
+
+    <string-array name="negative_emotions">
+        <item>sad</item>
+        <item>disappointed</item>
+        <item>annoyed</item>
+        <item>angry</item>
+        <item>frustrated</item>
+        <item>stressed</item>
+        <item>tired</item>
+        <item>exhausted</item>
+        <item>anxious</item>
+        <item>worried</item>
+        <item>concerned</item>
+    </string-array>
+
+    <string-array name="neutral_emotions">
+        <item>normal</item>
+        <item>usual</item>
+        <item>okay</item>
+        <item>fine</item>
+        <item>decent</item>
+    </string-array>
+
+    <string name="profile_preview">Profile photo preview</string>
+    <string name="female">Female</string>
+    <string name="male">Male</string>
+    <string name="female_profile_1">Female Profile 1</string>
+    <string name="female_profile_2">Female Profile 2</string>
+    <string name="male_profile_1">Male Profile 1</string>
+    <string name="male_profile_2">Male Profile 2</string>
+    <string name="cancel">Cancel</string>
+    <string name="profile_picture_updated">Profile photo successfully updated!</string>
+
+    <string name="error_bad_request">Request was invalid. Please check your message format.</string>
+    <string name="error_session_expired">Session expired. Please log in again.</string>
+    <string name="error_server_error">Server error. Please try again later.</string>
+    <string name="error_ai_issues">AI encountered a problem. Please try again later.</string>
+    <string name="error_timeout">Request timed out. Please try again!</string>
+
+    <string name="auth_initializing">Initializing authentication...</string>
+    <string name="auth_success">Initializing authentication: successful</string>
+    <string name="auth_failed">Initializing authentication: failed</string>
+    <string name="emotion_detection_start">Initiating emotion detection for: %1$s</string>
+    <string name="token_expired">Token expired, trying to refresh and retry...</string>
+    <string name="token_refreshed">Token refreshed. Retrying API call.</string>
+    <string name="session_ended">Session ended. Please re-login!</string>
+    <string name="request_cancelled">Permission canceled</string>
+    <string name="auth_failed_error">Authentication failed.</string>
+    <string name="invalid_image_file">Image file is invalid or empty.</string>
+    <string name="api_response_emotion">API response - emotion: %1$s</string>
+    <string name="api_response_trustion">API response - trust: %1$s</string>
+    <string name="api_response_recommendation">API response - recommendation: %1$s</string>
+    <string name="api_response_message">API response - message: %1$s</string>
+    <string name="recommendation_null">Recommendation is null or empty</string>
+    <string name="recommendation_original">Original recommendation: %1$s</string>
+    <string name="recommendation_parsed">Parsed into %1$d recommendations</string>
+
+    <string name="error_auth_failed">Authentication failed.</string>
+    <string name="error_invalid_image_file">The image file is invalid or empty.</string>
+    <string name="error_network">Failed to connect to server. Check your internet connection.</string>
+    <string name="error_session_ended">Session ended. Please log in again!</string>
+    <string name="error_photo_not_analyzed">The photo could not be analyzed. Make sure your face is clearly visible and there is sufficient lighting!</string>
+    <string name="error_access_denied">Access denied. Check your account permissions!</string>
+    <string name="error_photo_too_large">The photo size is too large. Try using a smaller photo!</string>
+    <string name="error_photo_format_not_supported">Photo format is not supported. Use JPG or PNG!</string>
+    <string name="error_too_many_requests">Too many requests. Take a break!</string>
+    <string name="error_server_issue">The server is having problems. Please try again in a few minutes!</string>
+    <string name="error_server_maintenance">The server is under maintenance. Please be patient, it will be back to normal soon!</string>
+    <string name="error_face_not_detected">Face not detected. Make sure your face is clearly visible and facing the camera!</string>
+    <string name="error_multiple_faces_detected">More than one face detected. Use a photo with only one face!</string>
+    <string name="error_generic">A technical error occurred (%1$d). Our team will fix it soon!</string>
+    <string name="emotion_detected_message">I detected emotion %1$s from your expression.</string>
+
+    <string name="capture_button_desc">Button to take a photo</string>
+</resources>

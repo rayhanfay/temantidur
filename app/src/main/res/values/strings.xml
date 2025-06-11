@@ -1,0 +1,515 @@
+<resources>
+    <string name="app_name" translatable="false">Teman Tidur</string>
+    <string name="tagline" translatable="false">Your Comfy Shadow</string>
+    <string name="register_title">Silahkan Masukkan Data Diri Kamu</string>
+    <string name="email_form">"Email</string>
+    <string name="username_form">"Username</string>
+    <string name="password_form">"Password</string>
+    <string name="confirm_password_form">"Confirm Password</string>
+    <string name="email_hint">Ketik Email kamu…</string>
+    <string name="username_hint">Ketik Username kamu…</string>
+    <string name="password_hint">Ketik Password kamu…</string>
+    <string name="confirm_password_hint">Ketik Ulang Password kamu…</string>
+    <string name="register_hint">Belum Punya Akun?</string>
+    <string name="login_hint">Sudah Punya Akun?</string>
+    <string name="register_suggestion">Silahkan Daftar</string>
+    <string name="login_suggestion">Silahkan Masuk</string>
+    <string name="login_button">Login</string>
+    <string name="register_button">Daftar</string>
+    <string name="login_success">Successful!</string>
+    <string name="login_success_message">Teman Tidur Menunggumu…</string>
+    <string name="next_button">Next</string>
+    <string name="login_failed">Oops!</string>
+    <string name="login_failed_message">Sepertinya ada yang Salah…</string>
+    <string name="retry_button">Retry</string>
+    <string name="otp_title">Masukkan Kode OTP</string>
+    <string name="otp_hint">Tidak menerima kode?</string>
+    <string name="otp_suggestion">Kirim Ulang</string>
+
+    <!--  Dialog Success  -->
+    <string name="success_title">Berhasil!</string>
+    <string name="success_message">Operasi berhasil dilakukan.</string>
+    <string name="success_icon_description">Ikon centang sukses</string>
+    <string name="ok_button">Oke</string>
+
+    <!--  Dialog Confirmation  -->
+    <string name="confirmation_title">Konfirmasi</string>
+    <string name="confirmation_message">Apakah Anda yakin ingin melanjutkan tindakan ini?</string>
+    <string name="yes">Ya</string>
+    <string name="no">Tidak</string>
+    <string name="confirmation_icon_description">Ikon peringatan untuk konfirmasi</string>
+
+    <!--  Dialog Failed  -->
+    <string name="failed_title">Gagal!</string>
+    <string name="failed_message">Terjadi kesalahan. Silakan coba lagi.</string>
+    <string name="failed_icon_description">Ikon tanda silang untuk kegagalan</string>
+
+    <!--  Dialog Logout Confirmation  -->
+    <string name="logout_title">Konfirmasi Logout</string>
+    <string name="logout_message">Apakah Anda yakin ingin keluar dari akun ini?</string>
+
+    <!-- Main Menu -->
+    <!-- Toolbar -->
+    <string name="greeting_evening">Selamat Malam</string>
+    <string name="settings">Settings</string>
+
+    <!-- Navigation Menu -->
+    <string name="nav_chat">Chat</string>
+    <string name="nav_voice_assistant">Voice Assistant</string>
+    <string name="nav_emotion_check">Cek Emosi</string>
+
+    <!-- Content Descriptions for Accessibility -->
+    <string name="desc_settings_button">Tombol pengaturan</string>
+    <string name="desc_chat_button">Tombol chat</string>
+    <string name="desc_voice_button">Tombol asisten suara</string>
+    <string name="desc_emotion_button">Tombol cek emosi</string>
+
+    <!-- Status Bar -->
+    <string name="time_placeholder">12:30</string>
+    <string name="recap_saya">Recap Saya</string>
+    <string name="rekomendasi_kegiatan">Rekomendasi Kegiatan</string>
+    <string name="background_logo">Background Logo</string>
+    <string name="logo_teman_tidur">Logo Teman Tidur</string>
+
+    <!--  Sidebar  -->
+    <string name="teman_tidur" translatable="false">TEMAN TIDUR</string>
+    <string name="teman_tidur_tagline" translatable="false">Your Comfy Shadow</string>
+    <string name="my_profile">Profil Saya</string>
+    <string name="recommendation">Rekomendasi</string>
+    <string name="language">Bahasa</string>
+    <string name="about_us">Tentang Kami</string>
+    <string name="logout">Keluar</string>
+    <string name="daily_reminder">Pengingat Harian</string>
+    <string name="app_version">App Version 1.0</string>
+
+    <!--  Change Password  -->
+    <string name="change_password_title">Ubah Kata Sandi</string>
+    <string name="current_password_form">Kata Sandi Saat Ini</string>
+    <string name="current_password_hint">Masukkan kata sandi Anda saat ini</string>
+    <string name="new_password_form">Kata Sandi Baru</string>
+    <string name="new_password_hint">Masukkan kata sandi baru</string>
+    <string name="confirm_new_password_form">Konfirmasi Kata Sandi Baru</string>
+    <string name="confirm_new_password_hint">Konfirmasi kata sandi baru Anda</string>
+    <string name="change_password_button">Ubah Sandi</string>
+
+    <!--  Change Email  -->
+    <string name="change_email_title">Ubah Alamat Email</string>
+    <string name="current_email_form">Alamat Email Saat Ini</string>
+    <string name="current_email_hint">Masukkan alamat email Anda saat ini</string>
+    <string name="new_email_form">Alamat Email Baru</string>
+    <string name="new_email_hint">Masukkan alamat email baru Anda</string>
+    <string name="change_email_button">Ubah Email</string>
+
+    <!--  Change Username  -->
+    <string name="change_username">Ganti Username</string>
+    <string name="current_username_form">Username Saat Ini</string>
+    <string name="current_username_hint">Masukkan username Anda saat ini</string>
+    <string name="new_username_form">Username Baru</string>
+    <string name="new_username_hint">Masukkan username baru</string>
+    <string name="change_username_button">Ubah Username</string>
+
+    <!--  Fragment Profile  -->
+    <string name="user_name">User Name</string>
+    <string name="change_email">Change Email</string>
+    <string name="change_password">Change Password</string>
+
+    <!--  Fragment About Us  -->
+    <string name="about_us_desc">Aplikasi Teman Tidur, adalah sebuah aplikasi solusi berbasis AI yang bisa menjadi teman curhat untuk remaja yang merasakan kesepian di malam hari. Aplikasi ini serupa dengan chatbot dengan menambahkan fitur seperti mendeteksi visual emosi dengan interaksi yang supportif\n\n Teman Tidur diciptakan sebagai langkah awal menjaga kesehatan mental khususnya remaja yang masih rentan secara emosional dan perilaku. Aplikasi ini diharapkan bisa berdampak positif khususnya dalam mewujudkan Indonesia generasi emas</string>
+    <string name="people_behind">People behind this project :</string>
+    <string name="people_1">Rayhan</string>
+    <string name="github_profile_of_person_1">Profil GitHub %1$s</string>
+    <string name="people_2">Hashfi</string>
+    <string name="github_profile_of_person_2">Profil GitHub %1$s</string>
+    <string name="people_3">Agus</string>
+    <string name="github_profile_of_person_3">Profil GitHub %1$s</string>
+
+    <!--  Onboarding  -->
+    <string name="onboarding_title_1">Hi Teman!</string>
+    <string name="onboarding_title_desc_1">Selamat Datang di Teman Tidur</string>
+    <string name="onboarding_title_2">Bukan Sekedar Teman</string>
+    <string name="onboarding_title_desc_2">Teman Tidur siap mendengarkan keluh kesahmu!</string>
+    <string name="onboarding_title_3">Teruntuk Kamu</string>
+    <string name="onboarding_title_desc_3">Peluk Hatimu Setiap Waktu</string>
+    <string name="onboarding_description_1">Teman Tidur adalah aplikasi yang membantu menemani hari malammu dengan teman yang siap mendengarkanmu kapan saja dan di waktu apa saja.</string>
+    <string name="onboarding_description_2">Teman Tidur dilengkapi fitur chat layaknya kamu chat dengan seorang teman, mendengarkan cerita malammu serta melihat kondisi ekspresi wajah kamu.</string>
+    <string name="onboarding_description_3">Anggaplah aku sebagai bayangan nyamanmu, ceritakan semuanya padaku dan aku akan selalu ada untukmu.</string>
+    <string name="skip">Lewati</string>
+    <string name="finish">Selesai</string>
+    <string name="login">Masuk</string>
+    <string name="register">Pendaftaran Akun</string>
+    <string name="welcome">Selamat Datang</string>
+    <string name="onboarding_description_placeholder">Deskripsi onboarding akan ditampilkan di sini.</string>
+    <string name="cancel_button">Batal</string>
+    <string name="title_onboarding">Title Onboarding</string>
+    <string name="title_desc_onboarding">Title Description Onboarding</string>
+    <string name="onboarding_desc">Onboarding Description</string>
+    <string name="user_email">User Email</string>
+
+    <!-- Daily Reminder -->
+    <string name="reminder_enabled">Pengingat harian diaktifkan</string>
+    <string name="reminder_disabled">Pengingat harian dinonaktifkan</string>
+    <string name="alarm_permission_needed">Izin alarm diperlukan untuk mengatur pengingat</string>
+    <string name="daily_reminder_channel_name">Pengingat Harian</string>
+    <string name="daily_reminder_channel_description">Notifikasi pengingat harian TemanTidur</string>
+    <string name="daily_reminder_title">Waktunya Istirahat!</string>
+    <string name="daily_reminder_message">Jangan lupa untuk mempersiapkan tidur yang berkualitas malam ini 😴</string>
+    <string name="daily_reminder_notification">Jangan lupa catat transaksi keuangan Anda hari ini!</string>
+
+    <string name="permission_required_message">Izin %1$s diperlukan untuk melanjutkan. Mohon izinkan untuk pengalaman aplikasi yang optimal.</string>
+    <string name="permission_manual_enable_message">Izin %1$s ditolak secara permanen. Aktifkan secara manual di pengaturan aplikasi.</string>
+    <string name="sedang_mengetik">Teman tidur sedang mengetik...</string>
+    <string name="save">Simpan</string>
+
+    <!-- Login Validation Messages -->
+    <string name="error_email_required">Email harus diisi</string>
+    <string name="error_email_invalid">Format email tidak valid</string>
+    <string name="error_password_required">Password harus diisi</string>
+    <string name="error_password_min_length">Password minimal 6 karakter</string>
+
+    <!-- Login Success -->
+    <string name="login_success_title">Login Berhasil</string>
+
+    <!-- Login Error Messages -->
+    <string name="error_email_not_registered">Email tidak terdaftar</string>
+    <string name="error_invalid_credentials">Email atau password salah</string>
+    <string name="error_too_many_attempts_title">Login Dibatasi</string>
+    <string name="error_too_many_attempts_message">Terlalu banyak percobaan login yang gagal. Akun Anda sementara diblokir. Silakan coba lagi nanti atau reset password.</string>
+
+    <!-- Error Messages for Account Issues -->
+    <string name="error_account_disabled_title">Akun Dinonaktifkan</string>
+    <string name="error_account_disabled_message">Akun Anda telah dinonaktifkan. Silakan hubungi administrator untuk informasi lebih lanjut.</string>
+
+    <!-- Network Error -->
+    <string name="error_network_title">Masalah Jaringan</string>
+    <string name="error_network_message">Terjadi masalah koneksi internet. Periksa koneksi Anda dan coba lagi.</string>
+
+    <!-- Data Not Found -->
+    <string name="error_data_not_found_title">Data Tidak Ditemukan</string>
+    <string name="error_data_not_found_message">Data pengguna tidak ditemukan di database. Silakan hubungi administrator.</string>
+
+    <!-- Login Failed -->
+    <string name="error_login_failed_title">Login Gagal</string>
+    <string name="error_login_failed_unknown_message">Terjadi kesalahan yang tidak diketahui. Silakan coba lagi atau hubungi administrator.</string>
+    <string name="error_login_failed_message">Login gagal: %1$s</string>
+
+    <!-- Registration validation messages -->
+    <string name="error_username_required">Username harus diisi</string>
+    <string name="error_username_min_length">Username minimal 3 karakter</string>
+    <string name="error_confirm_password_required">Konfirmasi password harus diisi</string>
+    <string name="error_password_mismatch">Password tidak cocok</string>
+
+    <!-- Dialog titles -->
+    <string name="dialog_registration_success">Registrasi Berhasil</string>
+    <string name="dialog_registration_failed">Registrasi Gagal</string>
+
+    <!-- Chat Activity Messages -->
+    <string name="error_play_ai_audio">Gagal memutar audio AI</string>
+    <string name="error_stop_recording_first">Hentikan rekaman terlebih dahulu.</string>
+
+    <!-- Dialog Messages -->
+    <string name="dialog_clear_chat_title">Hapus Riwayat Chat</string>
+    <string name="dialog_clear_chat_message">Yakin ingin menghapus semua chat?</string>
+    <string name="button_delete">Hapus</string>
+    <string name="button_cancel">Batal</string>
+
+    <!-- Date Separators -->
+    <string name="date_today">Hari Ini</string>
+    <string name="date_yesterday">Kemarin</string>
+
+    <!-- Camera Activity -->
+    <string name="camera_permission_required">Izin kamera diperlukan untuk menggunakan fitur ini.</string>
+    <string name="auth_init_failed">Gagal inisialisasi autentikasi. Silakan login ulang.</string>
+    <string name="init_error">Terjadi kesalahan saat inisialisasi: %s</string>
+    <string name="camera_start_failed">Gagal memulai kamera: %s</string>
+    <string name="photo_capture_failed">Gagal mengambil foto: %s</string>
+    <string name="analysis_failed">Analisis gagal: %s</string>
+    <string name="general_error">Terjadi kesalahan: %s</string>
+    <string name="processing_photo">Sedang memproses foto, harap tunggu...</string>
+
+    <!-- Emotion Results -->
+    <string name="emotion_happy_title">Sepertinya Kamu Sedang Bahagia!</string>
+    <string name="emotion_sad_title">Aku Lihat Kamu Sedang Sedih</string>
+    <string name="emotion_angry_title">Kamu Terlihat Kesal Nih</string>
+    <string name="emotion_surprised_title">Wah, Kamu Kelihatan Kaget!</string>
+    <string name="emotion_neutral_title">Ekspresi Kamu Cukup Tenang</string>
+    <string name="emotion_unknown_title">Hmm, Aku Mendeteksi Sesuatu</string>
+    <string name="emotion_unknown">Unknown</string>
+    <string name="no_ai_description">Tidak ada deskripsi dari AI.</string>
+
+    <!-- Home Fragment -->
+    <string name="hows_your_day">How\'s Your Day %s</string>
+    <string name="no_emotion_data">Belum ada data emosi terakhir</string>
+
+    <!-- Default Recommendations -->
+    <string name="default_recommendation_1">Lakukan aktivitas yang menyenangkan</string>
+    <string name="default_recommendation_2">Istirahat yang cukup</string>
+    <string name="default_recommendation_3">Berinteraksi dengan orang terdekat</string>
+
+    <string name="notification_permission_required">Aplikasi membutuhkan izin notifikasi untuk pengingat harian.</string>
+    <string name="exact_alarm_permission_required">Mohon izinkan Setel alarm dan pengingat untuk pengingat harian.</string>
+    <string name="daily_reminder_enabled">Pengingat harian diaktifkan pada pukul %s</string>
+    <string name="daily_reminder_disabled">Pengingat harian dinonaktifkan</string>
+    <string name="logout_failed">Logout gagal. Silakan coba lagi.</string>
+    <string name="exit_app_title">Keluar Aplikasi</string>
+    <string name="exit_app_message">Apakah Anda yakin ingin keluar dari TemanTidur?</string>
+    <string name="no_daily_recap_available">Belum ada recap harian yang tersedia.\nMulai chat untuk membuat recap!</string>
+    <string name="onboarding_permission_rejected">Beberapa izin ditolak. Fitur mungkin tidak berfungsi dengan baik.</string>
+
+    <!-- rekomendasi -->
+    <string name="recommendation_title">Rekomendasi %1$d</string>
+    <string name="recommendation_activity_happy">Rekomendasi Aktivitas untuk Menjaga Kebahagiaanmu</string>
+    <string name="recommendation_activity_sad">Rekomendasi Aktivitas untuk Membangkitkan Semangat</string>
+    <string name="recommendation_activity_angry">Rekomendasi Aktivitas untuk Menenangkan Hati</string>
+    <string name="recommendation_activity_anxious">Rekomendasi Aktivitas untuk Meredakan Kecemasan</string>
+    <string name="recommendation_activity_stressed">Rekomendasi Aktivitas untuk Menghilangkan Stress</string>
+    <string name="recommendation_activity_tired">Rekomendasi Aktivitas untuk Memulihkan Energi</string>
+    <string name="recommendation_activity_lonely">Rekomendasi Aktivitas untuk Merasa Lebih Terhubung</string>
+    <string name="recommendation_activity_frustrated">Rekomendasi Aktivitas untuk Melepas Frustrasi</string>
+    <string name="recommendation_activity_neutral">Rekomendasi Aktivitas untuk Kamu</string>
+
+    <string name="silahkan_pose_apa_adanya">Silahkan pose apa adanya</string>
+    <string name="aku_akan_coba_memahamimu">Aku akan coba memahamimu</string>
+    <string name="chat_hint">Ketik pesan...</string>
+    <string name="send_message_desc">Send Message</string>
+    <string name="rekomendasi_aktivitas">Rekomendasi Aktivitas</string>
+    <string name="ubah_username_title">Ubah Username</string>
+    <string name="langkah_selanjutnya_dialog">Langkah Selanjutnya</string>
+    <string name="email_change_instruction">Setelah Anda mengklik tautan verifikasi di email:\n\n1. Kembali ke aplikasi ini\n2. Logout dan login kembali\n3. Email Anda akan berubah secara otomatis</string>
+    <string name="mengerti">Mengerti</string>
+    <string name="nanti">Nanti</string>
+    <string name="btnback_description">Kembali</string>
+    <string name="btnrecord_description">Rekam Suara</string>
+    <string name="btnsend_description">Kirim Pesan\n</string>
+    <string name="emotion_result_description">Emotion Result</string>
+    <string name="emotion_result">Kamu Sedang Galau</string>
+    <string name="message_emotion_result">lorem ipsum</string>
+    <string name="rekomendasi_aktivitas_button">Rekomendasi Aktivitas</string>
+    <string name="how_s_your_day">Bagaimana Harimu</string>
+    <string name="recap_button">Recap Saya</string>
+    <string name="rekomendasi_button">Rekomendasi</string>
+    <string name="cerita_denganku">Cerita denganku</string>
+    <string name="cerita_denganku_hint">Ketuk untuk menulis ceritamu</string>
+    <string name="pilih_bahasa">Pilih Bahasa</string>
+    <string name="bahasa_indonesia">Bahasa Indonesia</string>
+    <string name="bahasa_inggris">Bahasa Inggris</string>
+    <string name="recap_beberapa_terakhir">Recap Beberapa Terakhir</string>
+    <string name="empty_recap_hint">Belum ada recap harian yang tersedia.\nMulai chat untuk membuat recap!</string>
+    <string name="saran_ai">✨ Saran AI Khusus Untukmu</string>
+
+    <!-- Profile Screen -->
+    <string name="user_default_name">Pengguna</string>
+    <string name="email_not_available">Email tidak tersedia</string>
+    <string name="error_title">Error</string>
+
+    <!-- Buttons -->
+    <string name="btn_change_username">Ubah Username</string>
+    <string name="btn_change_email">Ubah Email</string>
+    <string name="btn_change_password">Ubah Password</string>
+    <string name="btn_logout">Keluar</string>
+    <string name="btn_cancel">Batal</string>
+    <string name="btn_ok">OK</string>
+
+    <!-- Username Change Dialog -->
+    <string name="current_username_label">Username Saat Ini</string>
+    <string name="new_username_label">Username Baru</string>
+    <string name="username_empty_error">Username baru tidak boleh kosong</string>
+    <string name="username_min_length_error">Username minimal 3 karakter</string>
+    <string name="username_max_length_error">Username maksimal 20 karakter</string>
+    <string name="username_invalid_chars_error">Username hanya boleh mengandung huruf, angka, underscore, dan titik</string>
+    <string name="username_same_as_current_error">Username baru sama dengan username saat ini</string>
+
+    <!-- Email Change Dialog -->
+    <string name="current_email_label">Email Saat Ini</string>
+    <string name="new_email_label">Email Baru</string>
+    <string name="current_password_label">Password Saat Ini</string>
+    <string name="new_email_empty_error">Email baru harus diisi</string>
+    <string name="email_invalid_format_error">Format email tidak valid</string>
+    <string name="password_required_verification_error">Password diperlukan untuk verifikasi</string>
+
+    <!-- Password Change Dialog -->
+    <string name="new_password_label">Password Baru</string>
+    <string name="confirm_new_password_label">Konfirmasi Password Baru</string>
+    <string name="current_password_empty_error">Password saat ini harus diisi</string>
+    <string name="new_password_empty_error">Password baru harus diisi</string>
+    <string name="password_min_length_error">Password minimal 6 karakter</string>
+    <string name="confirm_password_empty_error">Konfirmasi password harus diisi</string>
+    <string name="password_mismatch_error">Konfirmasi password tidak cocok</string>
+
+    <!-- Authentication Error Messages -->
+    <string name="user_not_found_error">User tidak ditemukan</string>
+    <string name="wrong_password_error">Password salah</string>
+    <string name="network_error">Masalah koneksi internet</string>
+    <string name="password_verification_failed_error">Verifikasi password gagal: %1$s</string>
+    <string name="email_already_in_use_error">Email sudah digunakan oleh akun lain</string>
+    <string name="send_verification_failed_error">Gagal mengirim email verifikasi</string>
+
+    <!-- Email Verification -->
+    <string name="email_verification_sent_title">Email Verifikasi Dikirim!</string>
+    <string name="email_verification_sent_message">Email verifikasi telah dikirim ke %1$s. Silakan buka email Anda dan klik tautan verifikasi untuk menyelesaikan perubahan email.</string>
+
+    <!-- Email Change Instructions -->
+    <string name="email_change_instructions_title">Petunjuk Perubahan Email</string>
+    <string name="email_change_instructions_message">Untuk menyelesaikan perubahan email:\n\n1. Buka email Anda di %1$s\n2. Cari email dari Firebase\n3. Klik tautan verifikasi\n4. Login kembali dengan email baru</string>
+
+    <!-- Daily Reminder Notification Channel -->
+    <string name="notification_channel_name">Pengingat Harian TemanTidur</string>
+    <string name="notification_channel_description">Pengingat untuk cek emosi, aktivitas, dan curhat.</string>
+
+    <!-- Daily Reminder Notification -->
+    <string name="notification_title">Waktunya TemanTidur!</string>
+    <string name="notification_text">Yuk, cek emosimu, selesaikan aktivitas, dan curhat bersama TemanTidur!</string>
+    <string name="notification_big_text">Yuk, cek emosimu, selesaikan aktivitas, dan curhat bersama TemanTidur! Jangan lupa untuk merawat kesehatan mentalmu hari ini.</string>
+
+    <!-- Empty state messages -->
+    <string name="recap_no_activity">Tidak ada aktivitas chat yang tercatat hari ini.</string>
+    <string name="recap_quiet_day">Hari yang tenang, hanya mendengarkan tanpa banyak bercerita.</string>
+
+    <!-- Activity level descriptions -->
+    <string name="recap_very_active_day">Hari yang sangat aktif dengan banyak cerita</string>
+    <string name="recap_quite_active_day">Hari dengan cukup banyak hal yang dibagikan</string>
+    <string name="recap_some_moments_day">Hari dengan beberapa momen yang diceritakan</string>
+    <string name="recap_quite_quiet_day">Hari yang cukup tenang</string>
+    <string name="recap_active_day">Hari yang cukup aktif dengan banyak cerita</string>
+    <string name="recap_shared_moments_day">Hari dengan beberapa momen yang dibagikan</string>
+    <string name="recap_quiet_day_activity">Hari yang tenang</string>
+
+    <!-- Emotional states -->
+    <string name="recap_very_positive_mood">dengan suasana hati yang sangat positif</string>
+    <string name="recap_more_pleasant_moments">dengan lebih banyak momen menyenangkan</string>
+    <string name="recap_heavy_emotional_challenges">dengan beberapa tantangan emosional yang cukup berat</string>
+    <string name="recap_normal_emotional_ups_downs">dengan ups and downs emosi yang wajar</string>
+    <string name="recap_stable_emotions">dengan emosi yang cukup stabil</string>
+    <string name="recap_stable_mood">dengan suasana hati yang cukup stabil</string>
+
+    <!-- Positive emotion variants -->
+    <string name="recap_positive_mood_1">dengan suasana hati yang cukup positif</string>
+    <string name="recap_positive_mood_2">diwarnai dengan momen-momen menyenangkan</string>
+    <string name="recap_positive_mood_3">penuh dengan energi positif</string>
+    <string name="recap_positive_mood_4">dengan perasaan yang baik secara keseluruhan</string>
+
+    <!-- Negative emotion variants -->
+    <string name="recap_negative_mood_1">meski ada beberapa tantangan yang dihadapi</string>
+    <string name="recap_negative_mood_2">dengan sedikit ups and downs dalam emosi</string>
+    <string name="recap_negative_mood_3">ada momen-momen yang cukup menantang</string>
+    <string name="recap_negative_mood_4">meski tidak semua berjalan mulus</string>
+
+    <!-- Activity descriptions -->
+    <string name="recap_main_focus">Fokus utama hari ini adalah %1$s</string>
+    <string name="recap_activities_include">Aktivitas meliputi %1$s</string>
+    <string name="recap_various_activities">Hari yang penuh dengan berbagai aktivitas</string>
+    <string name="recap_lots_of_details">Banyak detail yang dibagikan hari ini</string>
+
+    <!-- Encouraging endings -->
+    <string name="recap_ending_1">Tetap semangat untuk hari-hari berikutnya! 💪</string>
+    <string name="recap_ending_2">Setiap hari adalah pembelajaran baru. 🌟</string>
+    <string name="recap_ending_3">Keep going, you\'re doing great! ✨</string>
+    <string name="recap_ending_4">Terima kasih sudah berbagi ceritamu hari ini. 💙</string>
+
+    <string name="recap_generation_error">Gagal memuat rekap harian</string>
+    <string name="edit_profile_picture">Edit Profile Picture</string>
+
+    <!-- Activity keywords -->
+    <string-array name="activity_keywords">
+        <item>kerja</item>
+        <item>kuliah</item>
+        <item>sekolah</item>
+        <item>meeting</item>
+        <item>belajar</item>
+        <item>olahraga</item>
+        <item>jalan</item>
+        <item>makan</item>
+        <item>tidur</item>
+        <item>nonton</item>
+        <item>main</item>
+    </string-array>
+
+    <!-- Emotion keywords -->
+    <string-array name="positive_emotions">
+        <item>bahagia</item>
+        <item>senang</item>
+        <item>gembira</item>
+        <item>excited</item>
+        <item>antusias</item>
+        <item>puas</item>
+        <item>lega</item>
+        <item>bangga</item>
+        <item>grateful</item>
+        <item>syukur</item>
+    </string-array>
+
+    <string-array name="negative_emotions">
+        <item>sedih</item>
+        <item>kecewa</item>
+        <item>kesal</item>
+        <item>marah</item>
+        <item>frustasi</item>
+        <item>stress</item>
+        <item>lelah</item>
+        <item>capek</item>
+        <item>anxious</item>
+        <item>cemas</item>
+        <item>khawatir</item>
+    </string-array>
+
+    <string-array name="neutral_emotions">
+        <item>biasa</item>
+        <item>normal</item>
+        <item>okay</item>
+        <item>fine</item>
+        <item>lumayan</item>
+    </string-array>
+
+    <string name="profile_preview">Preview foto profil</string>
+    <string name="female">Perempuan</string>
+    <string name="male">Laki-laki</string>
+    <string name="female_profile_1">Profil Perempuan 1</string>
+    <string name="female_profile_2">Profil Perempuan 2</string>
+    <string name="male_profile_1">Profil Laki-laki 1</string>
+    <string name="male_profile_2">Profil Laki-laki 2</string>
+    <string name="cancel">Batal</string>
+    <string name="profile_picture_updated">Foto profil berhasil diperbarui!</string>
+
+    <!-- Error messages from TemanTidurRepository.kt -->
+    <string name="error_bad_request">Permintaan salah. Harap periksa format pesan Anda.</string>
+    <string name="error_session_expired">Sesi kedaluwarsa. Harap masuk lagi.</string>
+    <string name="error_server_error">Kesalahan server. Harap coba lagi nanti.</string>
+    <string name="error_ai_issues">AI mengalami masalah. Harap coba lagi sebentar lagi.</string>
+    <string name="error_timeout">Waktu permintaan habis. Silakan coba lagi!</string>
+
+    <string name="auth_initializing">Menginisialisasi autentikasi...</string>
+    <string name="auth_success">Inisialisasi autentikasi: berhasil</string>
+    <string name="auth_failed">Inisialisasi autentikasi: gagal</string>
+    <string name="emotion_detection_start">Memulai deteksi emosi untuk: %1$s</string>
+    <string name="token_expired">Token kedaluwarsa, mencoba menyegarkan dan mencoba lagi...</string>
+    <string name="token_refreshed">Token disegarkan. Mencoba lagi panggilan API.</string>
+    <string name="session_ended">Sesi berakhir. Silakan login ulang ya!</string>
+    <string name="request_cancelled">Izin dibatalkan</string>
+    <string name="auth_failed_error">Autentikasi gagal.</string>
+    <string name="invalid_image_file">File gambar tidak valid atau kosong.</string>
+    <string name="api_response_emotion">Respons API - emosi: %1$s</string>
+    <string name="api_response_trustion">Respons API - kepercayaan: %1$s</string>
+    <string name="api_response_recommendation">Respons API - rekomendasi: %1$s</string>
+    <string name="api_response_message">Respons API - pesan: %1$s</string>
+    <string name="recommendation_null">Rekomendasi adalah null atau kosong</string>
+    <string name="recommendation_original">Rekomendasi asli: %1$s</string>
+    <string name="recommendation_parsed">Diuraikan menjadi %1$d rekomendasi</string>
+
+    <!-- Added strings from EmotionRepository.kt -->
+    <string name="error_auth_failed">Autentikasi gagal.</string>
+    <string name="error_invalid_image_file">File gambar tidak valid atau kosong.</string>
+    <string name="error_network">Gagal terhubung ke server. Periksa koneksi internetmu.</string>
+    <string name="error_session_ended">Sesi berakhir. Silakan login ulang ya!</string>
+    <string name="error_photo_not_analyzed">Foto tidak bisa dianalisis. Pastikan wajah terlihat jelas dan pencahayaan cukup ya!</string>
+    <string name="error_access_denied">Akses ditolak. Periksa izin akun kamu ya!</string>
+    <string name="error_photo_too_large">Ukuran foto terlalu besar. Coba gunakan foto yang lebih kecil!</string>
+    <string name="error_photo_format_not_supported">Format foto tidak didukung. Gunakan JPG atau PNG ya!</string>
+    <string name="error_too_many_requests">Terlalu banyak permintaan. Istirahat sebentar dulu ya!</string>
+    <string name="error_server_issue">Server sedang bermasalah. Coba lagi dalam beberapa menit!</string>
+    <string name="error_server_maintenance">Server sedang maintenance. Sabar ya, akan segera normal!</string>
+    <string name="error_face_not_detected">Wajah tidak terdeteksi. Pastikan wajah terlihat jelas dan menghadap kamera ya!</string>
+    <string name="error_multiple_faces_detected">Terdeteksi lebih dari satu wajah. Gunakan foto dengan satu wajah saja ya!</string>
+    <string name="error_generic">Terjadi kesalahan teknis (%1$d). Tim kami akan segera memperbaikinya!</string>
+    <string name="emotion_detected_message">Aku mendeteksi emosi %1$s dari ekspresimu.</string>
+
+    <string name="capture_button_desc">Tombol untuk mengambil foto</string>
+</resources>
