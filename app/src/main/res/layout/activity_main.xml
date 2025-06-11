@@ -202,22 +202,23 @@
                     android:layout_weight="1"
                     android:background="?attr/selectableItemBackgroundBorderless"
                     android:gravity="center"
-                    android:orientation="vertical"
-                    android:padding="8dp">
+                    android:orientation="vertical">
 
                     <ImageView
                         android:id="@+id/emotion_icon"
                         android:layout_width="32dp"
                         android:layout_height="32dp"
+                        android:layout_marginTop="8dp"
                         android:src="@drawable/ic_emotion"
                         app:tint="@drawable/nav_icon_color_selector" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginBottom="8dp"
                         android:fontFamily="@font/montserrat_bold"
                         android:gravity="center"
-                        android:layout_gravity="center"
                         android:text="@string/nav_emotion_check"
                         android:textColor="@android:color/white"
                         android:textSize="13sp" />

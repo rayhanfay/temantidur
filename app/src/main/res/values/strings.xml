@@ -512,4 +512,5 @@
     <string name="emotion_detected_message">Aku mendeteksi emosi %1$s dari ekspresimu.</string>
 
     <string name="capture_button_desc">Tombol untuk mengambil foto</string>
+    <string name="select_avatar">Pilih Avatar</string>
 </resources>

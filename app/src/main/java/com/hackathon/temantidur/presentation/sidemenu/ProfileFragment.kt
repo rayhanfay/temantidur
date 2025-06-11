@@ -13,6 +13,8 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
@@ -309,32 +311,46 @@ class ProfileFragment : Fragment() {
         val currentProfileResId = sessionManager.getProfilePictureResId()
         dialogBinding.ivPreview.setImageResource(currentProfileResId)
 
-        val avatarMap = mapOf(
-            dialogBinding.containerGirl1 to Pair(R.drawable.ic_girl_1, dialogBinding.ivGirl1),
-            dialogBinding.containerGirl2 to Pair(R.drawable.ic_girl_2, dialogBinding.ivGirl2),
-            dialogBinding.containerMan1 to Pair(R.drawable.ic_man_1, dialogBinding.ivMan1),
-        )
-
         var selectedDrawableResId: Int = currentProfileResId
 
-        avatarMap.values.find { it.first == currentProfileResId }?.let { (_, imageView) ->
-            (imageView.parent as? ViewGroup)?.findViewById<View>(R.id.view_selected_border)?.visibility = View.VISIBLE
+        val allAvatars = listOf(
+            R.drawable.ic_girl_1,
+            R.drawable.ic_girl_2,
+            R.drawable.ic_girl_3,
+            R.drawable.ic_girl_4,
+            R.drawable.ic_girl_5,
+            R.drawable.ic_girl_6,
+            R.drawable.ic_man_1,
+            R.drawable.ic_man_2,
+            R.drawable.ic_man_3,
+            R.drawable.ic_man_4,
+            R.drawable.ic_man_5,
+            R.drawable.ic_man_6,
+            R.drawable.ic_man_7,
+            R.drawable.ic_man_8,
+            R.drawable.ic_man_9,
+            R.drawable.ic_man_10,
+            R.drawable.ic_man_11
+        )
+
+        val avatarAdapter = AvatarAdapter(allAvatars) { clickedAvatarResId ->
+            selectedDrawableResId = clickedAvatarResId
+            dialogBinding.ivPreview.setImageResource(clickedAvatarResId)
         }
 
-        avatarMap.forEach { (container, pair) ->
-            val (drawableResId, imageView) = pair
-            container.setOnClickListener {
-                selectedDrawableResId = drawableResId
-                dialogBinding.ivPreview.setImageResource(drawableResId)
-                dialogBinding.viewSelectedBorder.visibility = View.VISIBLE
-
-                avatarMap.values.forEach { (_, iv) ->
-                    (iv.parent as? ViewGroup)?.findViewById<View>(R.id.view_selected_border)?.visibility = View.INVISIBLE
-                }
-
-                (imageView.parent as? ViewGroup)?.findViewById<View>(R.id.view_selected_border)?.visibility = View.VISIBLE
+        val layoutManager = object : GridLayoutManager(requireContext(), 4) {
+            override fun canScrollVertically(): Boolean {
+                return false
             }
         }
+
+        dialogBinding.rvAvatars.apply {
+            this.layoutManager = layoutManager
+            isNestedScrollingEnabled = false
+            adapter = avatarAdapter
+        }
+
+        avatarAdapter.setSelectedAvatar(currentProfileResId)
 
         dialogBinding.btnSave.setOnClickListener {
             if (selectedDrawableResId != currentProfileResId) {

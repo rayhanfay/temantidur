@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:layout_gravity="center"
@@ -9,172 +10,102 @@
     android:orientation="vertical"
     android:padding="24dp">
 
-    <!-- Preview Section -->
-    <TextView
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Preview Foto Profil"
-        android:textAlignment="center"
-        android:textColor="@android:color/white"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        android:layout_marginBottom="16dp"/>
-
-    <FrameLayout
-        android:layout_width="120dp"
-        android:layout_height="120dp"
-        android:layout_gravity="center"
-        android:layout_marginBottom="24dp">
-
-        <View
-            android:id="@+id/view_selected_border"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@drawable/bg_circle_softmagenta"
-            android:visibility="gone" />
+        android:scrollbars="none">
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_margin="8dp"
-            android:background="@drawable/bg_circle_white"
-            android:gravity="center">
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
 
-            <ImageView
-                android:id="@+id/iv_preview"
-                android:layout_width="80dp"
-                android:layout_height="80dp"
-                android:contentDescription="@string/profile_preview"
-                android:scaleType="centerCrop"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:fontFamily="@font/montserrat_bold"
+                android:text="@string/profile_preview"
+                android:textAlignment="center"
+                android:textColor="@android:color/white"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <FrameLayout
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:layout_gravity="center"
+                android:layout_marginBottom="24dp">
+
+                <View
+                    android:id="@+id/view_selected_border"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/bg_circle_softmagenta"
+                    android:visibility="gone" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_margin="8dp"
+                    android:background="@drawable/bg_circle_white"
+                    android:gravity="center">
+
+                    <ImageView
+                        android:id="@+id/iv_preview"
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
+                        android:contentDescription="@string/profile_preview"
+                        android:scaleType="centerCrop" />
+                </LinearLayout>
+            </FrameLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:fontFamily="@font/montserrat_semibold"
+                android:text="@string/select_avatar"
+                android:textAlignment="center"
+                android:textColor="@android:color/white"
+                android:textSize="16sp" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_avatars"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="24dp"
+                android:nestedScrollingEnabled="false" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:weightSum="2">
+
+                <Button
+                    android:id="@+id/btn_cancel"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="8dp"
+                    android:layout_weight="1"
+                    android:backgroundTint="@android:color/holo_red_dark"
+                    android:fontFamily="@font/montserrat_semibold"
+                    android:text="@string/cancel"
+                    android:textColor="@color/white" />
+
+                <Button
+                    android:id="@+id/btn_save"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_weight="1"
+                    android:backgroundTint="@color/darkblue"
+                    android:fontFamily="@font/montserrat_semibold"
+                    android:text="@string/save"
+                    android:textColor="@color/white" />
+            </LinearLayout>
         </LinearLayout>
+    </ScrollView>
 
-        <!-- Border indicator when selected -->
-    </FrameLayout>
-
-    <!-- Avatar Selection -->
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Pilih Avatar"
-        android:textAlignment="center"
-        android:textColor="@android:color/white"
-        android:textSize="16sp"
-        android:layout_marginBottom="16dp"/>
-
-    <!-- Female Avatars -->
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Perempuan"
-        android:textColor="@android:color/white"
-        android:textSize="14sp"
-        android:layout_marginBottom="8dp"/>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:gravity="center"
-        android:layout_marginBottom="16dp">
-
-        <FrameLayout
-            android:id="@+id/container_girl_1"
-            android:layout_width="64dp"
-            android:layout_height="64dp"
-            android:layout_marginEnd="8dp"
-            android:background="@drawable/bg_circle_white">
-
-            <ImageView
-                android:id="@+id/iv_girl_1"
-                android:layout_width="48dp"
-                android:layout_height="48dp"
-                android:layout_gravity="center"
-                android:src="@drawable/ic_girl_1"
-                android:contentDescription="@string/female_profile_1"
-                android:scaleType="centerCrop"/>
-        </FrameLayout>
-
-        <FrameLayout
-            android:id="@+id/container_girl_2"
-            android:layout_width="64dp"
-            android:layout_height="64dp"
-            android:layout_marginEnd="8dp"
-            android:background="@drawable/bg_circle_white">
-
-            <ImageView
-                android:id="@+id/iv_girl_2"
-                android:layout_width="48dp"
-                android:layout_height="48dp"
-                android:layout_gravity="center"
-                android:src="@drawable/ic_girl_2"
-                android:contentDescription="@string/female_profile_2"
-                android:scaleType="centerCrop"/>
-        </FrameLayout>
-
-        <!-- Add more as needed -->
-    </LinearLayout>
-
-    <!-- Male Avatars -->
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Laki-laki"
-        android:textColor="@android:color/white"
-        android:textSize="14sp"
-        android:layout_marginBottom="8dp"/>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:gravity="center"
-        android:layout_marginBottom="24dp">
-
-        <FrameLayout
-            android:id="@+id/container_man_1"
-            android:layout_width="64dp"
-            android:layout_height="64dp"
-            android:layout_marginEnd="8dp"
-            android:background="@drawable/bg_circle_white">
-
-            <ImageView
-                android:id="@+id/iv_man_1"
-                android:layout_width="48dp"
-                android:layout_height="48dp"
-                android:layout_gravity="center"
-                android:src="@drawable/ic_man_1"
-                android:contentDescription="@string/male_profile_1"
-                android:scaleType="centerCrop"/>
-        </FrameLayout>
-
-        <!-- Add more as needed -->
-    </LinearLayout>
-
-    <!-- Action Buttons -->
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:weightSum="2">
-
-        <Button
-            android:id="@+id/btn_cancel"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:layout_marginEnd="8dp"
-            android:text="@string/cancel"
-            android:textColor="@color/white"
-            android:backgroundTint="@android:color/holo_red_dark"/>
-
-        <Button
-            android:id="@+id/btn_save"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:layout_marginStart="8dp"
-            android:text="@string/save"
-            android:textColor="@color/white"
-            android:backgroundTint="@color/darkblue"/>
-    </LinearLayout>
 </LinearLayout>
