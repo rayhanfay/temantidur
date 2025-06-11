@@ -14,7 +14,6 @@ import com.hackathon.temantidur.data.chat.model.DailyRecap
 import com.hackathon.temantidur.data.chat.model.VoiceApiResponse
 import com.hackathon.temantidur.data.chat.model.Message
 import com.hackathon.temantidur.data.chat.model.RecapResponse
-import com.hackathon.temantidur.utils.RecapGenerator
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
@@ -48,8 +47,6 @@ class ChatViewModel(application: Application) : AndroidViewModel(application) {
     private var authInitJob: Job? = null
     private var tokenCheckJob: Job? = null
     private val chatStorageManager = ChatStorageManager(application)
-    private val recapGenerator = RecapGenerator(application)
-
     private val _voiceMessageAddedEvent = MutableSharedFlow<File>()
     val voiceMessageAddedEvent: SharedFlow<File> = _voiceMessageAddedEvent
 
@@ -243,7 +240,8 @@ class ChatViewModel(application: Application) : AndroidViewModel(application) {
             when (val result = repository.getRecapFromApi(today, apiMessages)) {
                 is ApiResult.Success -> {
                     val recapData = result.data
-                    val dayLabel = SimpleDateFormat("EEEE", Locale("id", "ID")).format(Date())
+                    // Menggunakan Locale dari konteks untuk nama hari
+                    val dayLabel = SimpleDateFormat("EEEE", getApplication<Application>().resources.configuration.locales[0]).format(Date())
                     val dailyRecap = DailyRecap(
                         date = recapData.date,
                         dayLabel = dayLabel,
@@ -412,15 +410,6 @@ class ChatViewModel(application: Application) : AndroidViewModel(application) {
             } finally {
                 _isTyping.value = false
             }
-        }
-    }
-
-    fun generateTodayRecap() {
-        viewModelScope.launch {
-            val messages = chatStorageManager.loadChatMessages()
-            val recapGenerator = RecapGenerator(context = getApplication<Application>())
-            val recap = recapGenerator.generateDailyRecap(messages)
-            chatStorageManager.saveDailyRecap(recap)
         }
     }
 

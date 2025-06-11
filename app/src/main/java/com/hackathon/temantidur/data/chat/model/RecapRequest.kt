@@ -7,5 +7,8 @@ data class RecapRequest(
     val date: String,
 
     @SerializedName("messages")
-    val messages: List<Message>
+    val messages: List<Message>,
+
+    @SerializedName("language")
+    val language: String
 )

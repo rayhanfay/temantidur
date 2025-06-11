@@ -64,7 +64,7 @@ class AiDailyRecapService : JobIntentService() {
         when (val result = repository.getRecapFromApi(yesterdayDateStr, apiMessages)) {
             is com.hackathon.temantidur.common.ApiResult.Success -> {
                 val recapData = result.data
-                val dayLabel = SimpleDateFormat("EEEE", Locale("id", "ID")).format(calendar.time)
+                val dayLabel = SimpleDateFormat("EEEE", this.resources.configuration.locales[0]).format(calendar.time)
                 val dailyRecap = DailyRecap(
                     date = recapData.date,
                     dayLabel = dayLabel,

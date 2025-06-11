@@ -356,52 +356,6 @@
     <string name="notification_text">Let\'s check your emotions, complete activities, and chat with TemanTidur!</string>
     <string name="notification_big_text">Let\'s check your emotions, complete activities, and chat with TemanTidur! Don\'t forget to take care of your mental health today.</string>
 
-    <!-- Empty state messages -->
-    <string name="recap_no_activity">No chat activity recorded today.</string>
-    <string name="recap_quiet_day">A quiet day, just listening without much storytelling.</string>
-
-    <!-- Activity level descriptions -->
-    <string name="recap_very_active_day">A very active day with lots of stories</string>
-    <string name="recap_quite_active_day">A day with quite a lot to share</string>
-    <string name="recap_some_moments_day">A day with some moments shared</string>
-    <string name="recap_quite_quiet_day">A fairly quiet day</string>
-    <string name="recap_active_day">A fairly active day with many stories</string>
-    <string name="recap_shared_moments_day">A day with some shared moments</string>
-    <string name="recap_quiet_day_activity">A quiet day</string>
-
-    <!-- Emotional states -->
-    <string name="recap_very_positive_mood">with a very positive mood</string>
-    <string name="recap_more_pleasant_moments">with more pleasant moments</string>
-    <string name="recap_heavy_emotional_challenges">with some fairly heavy emotional challenges</string>
-    <string name="recap_normal_emotional_ups_downs">with normal emotional ups and downs</string>
-    <string name="recap_stable_emotions">with fairly stable emotions</string>
-    <string name="recap_stable_mood">with fairly stable moods</string>
-
-    <!-- Positive emotion variants -->
-    <string name="recap_positive_mood_1">with a fairly positive mood</string>
-    <string name="recap_positive_mood_2">colored with pleasant moments</string>
-    <string name="recap_positive_mood_3">full of positive energy</string>
-    <string name="recap_positive_mood_4">with overall good feelings</string>
-
-    <!-- Negative emotion variants -->
-    <string name="recap_negative_mood_1">despite some challenges faced</string>
-    <string name="recap_negative_mood_2">with some emotional ups and downs</string>
-    <string name="recap_negative_mood_3">with some challenging moments</string>
-    <string name="recap_negative_mood_4">though not everything went smoothly</string>
-
-    <!-- Activity descriptions -->
-    <string name="recap_main_focus">Today\'s main focus was %1$s</string>
-    <string name="recap_activities_include">Activities included %1$s</string>
-    <string name="recap_various_activities">A day full of various activities</string>
-    <string name="recap_lots_of_details">Lots of details shared today</string>
-
-    <!-- Encouraging endings -->
-    <string name="recap_ending_1">Stay strong for the days ahead! 💪</string>
-    <string name="recap_ending_2">Every day is a new learning experience. 🌟</string>
-    <string name="recap_ending_3">Keep going, you\'re doing great! ✨</string>
-    <string name="recap_ending_4">Thank you for sharing your stories today. 💙</string>
-
-    <string name="recap_generation_error">Failed to load daily recap</string>
     <string name="edit_profile_picture">Edit Profile Picture</string>
 
     <!-- Activity keywords -->

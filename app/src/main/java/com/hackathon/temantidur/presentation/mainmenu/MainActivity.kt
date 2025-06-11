@@ -51,7 +51,6 @@ import com.hackathon.temantidur.presentation.sidemenu.LanguageFragment
 import com.hackathon.temantidur.presentation.sidemenu.ProfileFragment
 import com.hackathon.temantidur.presentation.voicechat.VoiceRecordingManager
 import com.hackathon.temantidur.receivers.DailyReminderReceiver
-import com.hackathon.temantidur.services.DailyRecapService
 import com.hackathon.temantidur.utils.ToolbarVisibilityListener
 import com.hackathon.temantidur.utils.dialogs.ConfirmationDialogFragment
 import java.io.File
@@ -61,6 +60,7 @@ import androidx.activity.viewModels
 import androidx.lifecycle.lifecycleScope
 import com.hackathon.temantidur.BuildConfig
 import com.hackathon.temantidur.receivers.AutoRecapReceiver
+import com.hackathon.temantidur.services.AiDailyRecapService
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 
@@ -125,7 +125,6 @@ class MainActivity : AppCompatActivity(), ToolbarVisibilityListener,
         emotionIconHandler = Handler(Looper.getMainLooper())
         updateNavigationState()
         setupDailyRecapAlarm()
-        scheduleAutoRecapAlarm()
         setupDailyReminderSwitch()
         supportFragmentManager.addOnBackStackChangedListener(onBackStackChangedListener)
 
@@ -293,7 +292,7 @@ class MainActivity : AppCompatActivity(), ToolbarVisibilityListener,
 
     private fun setupDailyRecapAlarm() {
         val alarmManager = getSystemService(Context.ALARM_SERVICE) as AlarmManager
-        val intent = Intent(this, DailyRecapService::class.java)
+        val intent = Intent(this, AiDailyRecapService::class.java)
         val pendingIntent = PendingIntent.getService(
             this, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE
         )
@@ -555,40 +554,6 @@ class MainActivity : AppCompatActivity(), ToolbarVisibilityListener,
                 navigateToEmotionResult(emotion, confidence, description, recommendations)
             }
         }
-    }
-
-    private fun scheduleAutoRecapAlarm() {
-        val alarmManager = getSystemService(Context.ALARM_SERVICE) as AlarmManager
-        val intent = Intent(this, AutoRecapReceiver::class.java).apply {
-            action = "com.hackathon.temantidur.ACTION_AUTO_RECAP"
-        }
-
-        val pendingIntent = PendingIntent.getBroadcast(
-            this,
-            3001, // Gunakan request code yang berbeda
-            intent,
-            PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE
-        )
-
-        val calendar = Calendar.getInstance().apply {
-            timeInMillis = System.currentTimeMillis()
-            set(Calendar.HOUR_OF_DAY, 23)
-            set(Calendar.MINUTE, 59)
-            set(Calendar.SECOND, 0)
-        }
-
-        if (calendar.before(Calendar.getInstance())) {
-            calendar.add(Calendar.DATE, 1) // Jika sudah, set untuk besok
-        }
-
-        // Gunakan setInexactRepeating untuk efisiensi baterai
-        alarmManager.setInexactRepeating(
-            AlarmManager.RTC_WAKEUP,
-            calendar.timeInMillis,
-            AlarmManager.INTERVAL_DAY,
-            pendingIntent
-        )
-        Log.d("MainActivity", "Automatic recap alarm scheduled for ${calendar.time}")
     }
 
     private fun navigateToEmotionResult(

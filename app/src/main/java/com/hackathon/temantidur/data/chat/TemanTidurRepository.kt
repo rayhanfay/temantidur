@@ -8,6 +8,7 @@ import com.hackathon.temantidur.data.chat.api.TemanTidurApiService
 import com.hackathon.temantidur.data.chat.model.ChatRequest
 import com.hackathon.temantidur.data.chat.model.Message
 import com.hackathon.temantidur.data.auth.AuthManager
+import com.hackathon.temantidur.data.auth.SessionManager
 import com.hackathon.temantidur.data.chat.model.VoiceApiResponse
 import com.hackathon.temantidur.utils.AudioConverter
 import com.hackathon.temantidur.data.chat.model.RecapRequest
@@ -29,6 +30,7 @@ class TemanTidurRepository(private val context: Context) {
     private val audioConverter = AudioConverter(context)
     private val conversationHistory = mutableListOf<Message>()
     private val repositoryScope = CoroutineScope(SupervisorJob() + Dispatchers.IO)
+    private val sessionManager = SessionManager(context)
 
     companion object {
         private const val BASE_URL = com.hackathon.temantidur.BuildConfig.BASE_URL
@@ -308,13 +310,17 @@ class TemanTidurRepository(private val context: Context) {
     }
 
     suspend fun getRecapFromApi(date: String, messages: List<Message>): ApiResult<RecapResponse> {
+        // Ambil bahasa dari SessionManager
+        val language = sessionManager.getLanguage() ?: "id"
+
         return try {
-            val result = getRecapInternal(date, messages)
+            // Ubah pemanggilan ke getRecapInternal
+            val result = getRecapInternal(date, messages, language)
             if (result is ApiResult.Error && result.code == 401) {
                 Log.d("TemanTidurRepository", "Recap failed with 401, refreshing token...")
                 val refreshedToken = authManager.forceRefreshToken()
                 if (refreshedToken != null) {
-                    getRecapInternal(date, messages)
+                    getRecapInternal(date, messages, language)
                 } else {
                     ApiResult.Error("Authentication failed. Please login again.", 401)
                 }
@@ -327,10 +333,11 @@ class TemanTidurRepository(private val context: Context) {
         }
     }
 
-    private suspend fun getRecapInternal(date: String, messages: List<Message>): ApiResult<RecapResponse> {
+    private suspend fun getRecapInternal(date: String, messages: List<Message>, language: String): ApiResult<RecapResponse> {
         val token = authManager.getValidToken() ?: return ApiResult.Error("Authentication token is missing.", 401)
 
-        val request = RecapRequest(date = date, messages = messages)
+        val request = RecapRequest(date = date, messages = messages, language = language)
+        Log.d("TemanTidurRepository", "Sending recap request for language: $language")
         val response = api.getRecap("Bearer $token", request)
 
         return if (response.isSuccessful) {

@@ -360,52 +360,6 @@
     <string name="notification_text">Yuk, cek emosimu, selesaikan aktivitas, dan curhat bersama TemanTidur!</string>
     <string name="notification_big_text">Yuk, cek emosimu, selesaikan aktivitas, dan curhat bersama TemanTidur! Jangan lupa untuk merawat kesehatan mentalmu hari ini.</string>
 
-    <!-- Empty state messages -->
-    <string name="recap_no_activity">Tidak ada aktivitas chat yang tercatat hari ini.</string>
-    <string name="recap_quiet_day">Hari yang tenang, hanya mendengarkan tanpa banyak bercerita.</string>
-
-    <!-- Activity level descriptions -->
-    <string name="recap_very_active_day">Hari yang sangat aktif dengan banyak cerita</string>
-    <string name="recap_quite_active_day">Hari dengan cukup banyak hal yang dibagikan</string>
-    <string name="recap_some_moments_day">Hari dengan beberapa momen yang diceritakan</string>
-    <string name="recap_quite_quiet_day">Hari yang cukup tenang</string>
-    <string name="recap_active_day">Hari yang cukup aktif dengan banyak cerita</string>
-    <string name="recap_shared_moments_day">Hari dengan beberapa momen yang dibagikan</string>
-    <string name="recap_quiet_day_activity">Hari yang tenang</string>
-
-    <!-- Emotional states -->
-    <string name="recap_very_positive_mood">dengan suasana hati yang sangat positif</string>
-    <string name="recap_more_pleasant_moments">dengan lebih banyak momen menyenangkan</string>
-    <string name="recap_heavy_emotional_challenges">dengan beberapa tantangan emosional yang cukup berat</string>
-    <string name="recap_normal_emotional_ups_downs">dengan ups and downs emosi yang wajar</string>
-    <string name="recap_stable_emotions">dengan emosi yang cukup stabil</string>
-    <string name="recap_stable_mood">dengan suasana hati yang cukup stabil</string>
-
-    <!-- Positive emotion variants -->
-    <string name="recap_positive_mood_1">dengan suasana hati yang cukup positif</string>
-    <string name="recap_positive_mood_2">diwarnai dengan momen-momen menyenangkan</string>
-    <string name="recap_positive_mood_3">penuh dengan energi positif</string>
-    <string name="recap_positive_mood_4">dengan perasaan yang baik secara keseluruhan</string>
-
-    <!-- Negative emotion variants -->
-    <string name="recap_negative_mood_1">meski ada beberapa tantangan yang dihadapi</string>
-    <string name="recap_negative_mood_2">dengan sedikit ups and downs dalam emosi</string>
-    <string name="recap_negative_mood_3">ada momen-momen yang cukup menantang</string>
-    <string name="recap_negative_mood_4">meski tidak semua berjalan mulus</string>
-
-    <!-- Activity descriptions -->
-    <string name="recap_main_focus">Fokus utama hari ini adalah %1$s</string>
-    <string name="recap_activities_include">Aktivitas meliputi %1$s</string>
-    <string name="recap_various_activities">Hari yang penuh dengan berbagai aktivitas</string>
-    <string name="recap_lots_of_details">Banyak detail yang dibagikan hari ini</string>
-
-    <!-- Encouraging endings -->
-    <string name="recap_ending_1">Tetap semangat untuk hari-hari berikutnya! 💪</string>
-    <string name="recap_ending_2">Setiap hari adalah pembelajaran baru. 🌟</string>
-    <string name="recap_ending_3">Keep going, you\'re doing great! ✨</string>
-    <string name="recap_ending_4">Terima kasih sudah berbagi ceritamu hari ini. 💙</string>
-
-    <string name="recap_generation_error">Gagal memuat rekap harian</string>
     <string name="edit_profile_picture">Edit Profile Picture</string>
 
     <!-- Activity keywords -->
