@@ -177,19 +177,11 @@ Kami menyambut kontribusi dari developer lain! Silakan:
 
 ---
 
-## 📄 License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
----
-
 ## 📞 Support
 
 Jika Anda memiliki pertanyaan atau masalah:
 
-- 🐛 **Bug Reports**: [Issues](https://github.com/aripov21/TemanTidur/issues)
-- 💡 **Feature Requests**: [Discussions](https://github.com/aripov21/TemanTidur/discussions)
-- 📧 **Email**: support@temantidur.app
+- 📧 **Email**: yourcomfyshadow@gmail.com
 
 ---
 
