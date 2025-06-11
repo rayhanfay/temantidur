@@ -78,20 +78,19 @@ class EmotionRepository(private val context: Context) {
         }
     }
 
-    suspend fun detectEmotion(imageFile: File): ApiResult<EmotionResult> {
-        Log.d("EmotionRepo", "Starting emotion detection for: ${imageFile.name}")
+    suspend fun detectEmotion(imageFile: File, language: String): ApiResult<EmotionResult> {
+        Log.d("EmotionRepo", "Starting emotion detection for: ${imageFile.name} with language: $language")
         clearAnalysisCache()
 
         return try {
             val optimizedFile = optimizeImageForEmotionDetection(imageFile)
-            var result = performApiCall(optimizedFile)
+            var result = performApiCall(optimizedFile, language)
 
-            // Logika retry jika token expired (401)
             if (result is ApiResult.Error && result.code == 401) {
                 Log.d("EmotionRepo", "Token expired, attempting to refresh and retry...")
                 authManager.forceRefreshToken()?.let {
                     Log.d("EmotionRepo", "Token refreshed. Retrying API call.")
-                    result = performApiCall(optimizedFile)
+                    result = performApiCall(optimizedFile, language)
                 } ?: run {
                     result = ApiResult.Error("Sesi berakhir. Silakan login ulang ya!", 401)
                 }
@@ -114,7 +113,7 @@ class EmotionRepository(private val context: Context) {
         }
     }
 
-    private suspend fun performApiCall(imageFile: File): ApiResult<EmotionResult> {
+    private suspend fun performApiCall(imageFile: File, language: String): ApiResult<EmotionResult> {
         val token = authManager.getValidToken() ?: return ApiResult.Error(context.getString(R.string.error_auth_failed), 401)
 
         if (!imageFile.exists() || imageFile.length() == 0L) {
@@ -123,22 +122,19 @@ class EmotionRepository(private val context: Context) {
 
         val requestFile = imageFile.asRequestBody("image/jpeg".toMediaTypeOrNull())
         val imagePart = MultipartBody.Part.createFormData("image", imageFile.name, requestFile)
+        val languagePart = MultipartBody.Part.createFormData("language", language)
 
         return try {
-            val response = api.detectEmotion("Bearer $token", imagePart)
+            val response = api.detectEmotion("Bearer $token", imagePart, languagePart)
 
             if (response.isSuccessful && response.body() != null) {
                 val responseBody = response.body()!!
-
-                // Log the response for debugging
                 Log.d("EmotionRepo", "API Response - emotion: ${responseBody.emotion}")
                 Log.d("EmotionRepo", "API Response - confidence: ${responseBody.confidence}")
                 Log.d("EmotionRepo", "API Response - recommendation: ${responseBody.recommendation}")
                 Log.d("EmotionRepo", "API Response - message: ${responseBody.message}")
 
-                // Parse recommendation string menjadi list
                 val recommendations = parseRecommendationString(responseBody.recommendation)
-
                 Log.d("EmotionRepo", "Parsed recommendations count: ${recommendations.size}")
                 recommendations.forEachIndexed { index, rec ->
                     Log.d("EmotionRepo", "Recommendation $index: $rec")
@@ -151,11 +147,8 @@ class EmotionRepository(private val context: Context) {
                     recommendations = recommendations,
                     imageFile = imageFile.absolutePath
                 )
-
                 Log.d("EmotionRepo", "Created EmotionResult with ${result.recommendations.size} recommendations")
-
                 ApiResult.Success(result)
-
             } else {
                 val errorBody = response.errorBody()?.string()
                 ApiResult.Error(parseEmotionError(response.code(), errorBody), response.code())
@@ -171,9 +164,7 @@ class EmotionRepository(private val context: Context) {
             Log.d("EmotionRepo", "Recommendation is null or blank")
             return emptyList()
         }
-
         val recommendations = mutableListOf<String>()
-
         val sentences = recommendation.split(Regex("[.!?]\\s*"))
             .filter { it.trim().isNotEmpty() }
             .map { it.trim() }
@@ -187,10 +178,8 @@ class EmotionRepository(private val context: Context) {
         } else {
             recommendations.add(recommendation.trim())
         }
-
         Log.d("EmotionRepo", "Original recommendation: $recommendation")
         Log.d("EmotionRepo", "Parsed into ${recommendations.size} recommendations")
-
         return recommendations
     }
 
@@ -281,7 +270,6 @@ class EmotionRepository(private val context: Context) {
                 originalFile
             }
         }
-        return originalFile
     }
 
     private fun calculateInSampleSize(options: BitmapFactory.Options, reqWidth: Int, reqHeight: Int): Int {
@@ -323,12 +311,9 @@ class EmotionRepository(private val context: Context) {
     private fun resizeBitmap(bitmap: Bitmap, maxSize: Int): Bitmap {
         val width = bitmap.width
         val height = bitmap.height
-
         val scale = minOf(maxSize.toFloat() / width, maxSize.toFloat() / height)
-
         val newWidth = (width * scale).toInt()
         val newHeight = (height * scale).toInt()
-
         return Bitmap.createScaledBitmap(bitmap, newWidth, newHeight, true)
     }
 

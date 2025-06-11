@@ -17,6 +17,7 @@ import androidx.core.content.ContextCompat
 import androidx.lifecycle.lifecycleScope
 import com.hackathon.temantidur.R
 import com.hackathon.temantidur.common.ApiResult
+import com.hackathon.temantidur.data.auth.SessionManager
 import com.hackathon.temantidur.data.emotion.EmotionRepository
 import com.hackathon.temantidur.data.emotion.model.EmotionResult
 import com.hackathon.temantidur.databinding.ActivityCameraLayoutBinding
@@ -38,6 +39,7 @@ class CameraActivity : AppCompatActivity() {
     private lateinit var emotionRepository: EmotionRepository
     private var loadingDialog: LoadingDialogFragment? = null
     private var isProcessing = false
+    private lateinit var sessionManager: SessionManager
     private lateinit var emotionStorageManager: EmotionStorageManager
     private lateinit var frozenPreview: ImageView
     private lateinit var flashOverlay: View
@@ -75,6 +77,7 @@ class CameraActivity : AppCompatActivity() {
         updateFlashIcon()
 
         emotionRepository = EmotionRepository(this)
+        sessionManager = SessionManager(this)
         setupUI()
 
         if (allPermissionsGranted()) {
@@ -251,7 +254,8 @@ class CameraActivity : AppCompatActivity() {
     private fun analyzeEmotion(imageFile: File) {
         lifecycleScope.launch {
             try {
-                when (val result = emotionRepository.detectEmotion(imageFile)) {
+                val language = sessionManager.getLanguage() ?: "id"
+                when (val result = emotionRepository.detectEmotion(imageFile, language)) {
                     is ApiResult.Success -> {
                         Log.d("CameraActivity", "Emotion analysis successful: ${result.data}")
                         Log.d("CameraActivity", "Emotion: ${result.data.emotion}")

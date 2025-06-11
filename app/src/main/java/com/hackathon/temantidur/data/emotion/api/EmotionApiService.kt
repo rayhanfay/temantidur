@@ -10,6 +10,7 @@ interface EmotionApiService {
     @POST("detect-emotion")
     suspend fun detectEmotion(
         @Header("Authorization") authorization: String,
-        @Part image: MultipartBody.Part
+        @Part image: MultipartBody.Part,
+        @Part language: MultipartBody.Part
     ): Response<EmotionResponse>
 }
