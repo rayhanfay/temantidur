@@ -11,7 +11,6 @@
 - **🚴 Activity Recommendations**: Personalized calming activities based on emotion analysis
 - **🌍 Multi-language Support**: Full support for Indonesian and English with automatic detection
 - **🔐 Firebase Authentication**: Secure access with Firebase tokens
-- **🛡️ Content Filtering**: Built-in content safety with Azure Content Safety
 
 ## 📋 Prerequisites
 
