@@ -5,7 +5,6 @@
   [![Android](https://img.shields.io/badge/Platform-Android-green.svg)](https://android.com)
   [![Kotlin](https://img.shields.io/badge/Language-Kotlin-blue.svg)](https://kotlinlang.org)
   [![API](https://img.shields.io/badge/API-24%2B-brightgreen.svg)](https://android-arsenal.com/api?level=24)
-  [![License](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
   
   **Aplikasi Android inovatif yang dirancang sebagai teman curhat virtual dengan teknologi AI**
   
@@ -171,10 +170,10 @@ Kami menyambut kontribusi dari developer lain! Silakan:
 
 | Role | Member |
 |------|--------|
-| 📋 **Product Manager** | [Rayhan Al Farassy](https://github.com/rayhan-al-farassy) |
-| 🎨 **UI/UX Designer** | [Rayhan Al Farassy](https://github.com/rayhan-al-farassy), [Agus Syuhada](https://github.com/agus-syuhada) |
-| 📱 **Android Developer** | [Agus Syuhada](https://github.com/agus-syuhada), [M Hashfi Fanny AYD](https://github.com/hashfifanny) |
-| ☁️ **Cloud Engineer** | [Rayhan Al Farassy](https://github.com/rayhan-al-farassy) |
+| 📋 **Product Manager** | [Rayhan Al Farassy](https://github.com/rayhanfay) |
+| 🎨 **UI/UX Designer** | [Rayhan Al Farassy](https://github.com/rayhanfay), [Agus Syuhada](https://github.com/AgusSyuhada) |
+| 📱 **Android Developer** | [Agus Syuhada](https://github.com/AgusSyuhada), [M Hashfi Fanny AYD](https://github.com/hashfiayd) |
+| ☁️ **Cloud Engineer** | [Rayhan Al Farassy](https://github.com/rayhanfay) |
 
 ---
 
