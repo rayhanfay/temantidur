@@ -13,7 +13,7 @@ def detect_language(text):
     Returns 'id' for Indonesian, 'en' for English
     """
     if not text:
-        return 'id'  # Default to Indonesian
+        return 'id'  
     
     text_lower = text.lower()
     
@@ -195,7 +195,7 @@ async def handle_chat_request(request: Request):
         user_messages = [msg for msg in body.get("messages", []) if msg["role"] != "system"]
         
         # Detect language from the most recent user message
-        language = 'id'  # Default to Indonesian
+        language = 'id'  
         if user_messages:
             latest_message = user_messages[-1].get("content", "")
             language = detect_language(latest_message)
@@ -214,7 +214,7 @@ async def handle_chat_request(request: Request):
 
         response = client.chat.completions.create(
             messages=messages,
-            max_tokens=body.get("max_tokens", 200),  # Reduced for mobile
+            max_tokens=body.get("max_tokens", 200),  
             temperature=body.get("temperature", 0.9),
             top_p=body.get("top_p", 1.0),
             model=DEPLOYMENT_NAME,

@@ -90,6 +90,64 @@ def transcribe_audio(file_path: str, language: str = "id") -> str:
         raise Exception(f"Gagal mengenali suara: {str(e)}")
 
 
+def truncate_at_sentence_end(text: str, max_length: int = None) -> str:
+    """
+    Truncate text at the last complete sentence to avoid cut-off responses
+    """
+    if not text or not text.strip():
+        return text
+    
+    # Clean the text first
+    text = text.strip()
+    
+    # If max_length is specified and text is shorter, return as is
+    if max_length and len(text) <= max_length:
+        return text
+    
+    # Find sentence endings (period, exclamation, question mark)
+    sentence_endings = ['.', '!', '?']
+    
+    # If no max_length specified, just ensure it ends with proper punctuation
+    if not max_length:
+        if not any(text.endswith(ending) for ending in sentence_endings):
+            # Find the last sentence ending
+            last_sentence_pos = -1
+            for i in range(len(text) - 1, -1, -1):
+                if text[i] in sentence_endings:
+                    last_sentence_pos = i
+                    break
+            
+            if last_sentence_pos > 0:
+                return text[:last_sentence_pos + 1].strip()
+            else:
+                # If no sentence ending found, add period
+                return text + "."
+        return text
+    
+    # If text is longer than max_length, truncate at last complete sentence
+    if len(text) > max_length:
+        truncated = text[:max_length]
+        
+        # Find the last sentence ending within the truncated text
+        last_sentence_pos = -1
+        for i in range(len(truncated) - 1, -1, -1):
+            if truncated[i] in sentence_endings:
+                last_sentence_pos = i
+                break
+        
+        if last_sentence_pos > 0:
+            return truncated[:last_sentence_pos + 1].strip()
+        else:
+            # If no sentence ending found, find the last complete word and add period
+            words = truncated.split()
+            if len(words) > 1:
+                return ' '.join(words[:-1]) + "."
+            else:
+                return truncated + "."
+    
+    return text
+
+
 def synthesize_speech(text: str, voice: str = "id-ID-GadisNeural") -> bytes:
     """Convert text to speech using Azure Speech Service - output WAV format"""
     try:
@@ -112,7 +170,7 @@ def synthesize_speech(text: str, voice: str = "id-ID-GadisNeural") -> bytes:
 
 
 def get_ai_response_for_voice(user_text: str, lang: str = "id", is_first_message: bool = False) -> str:
-    """Get AI response for voice chat"""
+    """Get AI response for voice chat with proper sentence truncation"""
     try:
         if lang == "id":
             system_prompt = {
@@ -122,7 +180,8 @@ def get_ai_response_for_voice(user_text: str, lang: str = "id", is_first_message
                     "Kamu memahami perasaan overthinking, kecemasan tentang masa depan, dan kesepian yang dialami remaja. "
                     "Respons kamu selalu empati, hangat, supportif, tidak menggurui, dan seperti teman sebaya yang peduli. "
                     "Gunakan bahasa yang natural, friendly, dan sesuai dengan komunikasi remaja masa kini. "
-                    "Hindari emoji dan karakter khusus karena ini voice chat."
+                    "Hindari emoji dan karakter khusus karena ini voice chat. "
+                    "Berikan respons yang lengkap dalam 1-2 kalimat yang jelas dan berikan dukungan yang bermakna."
                 )
             }
             intro_text = (
@@ -136,7 +195,8 @@ def get_ai_response_for_voice(user_text: str, lang: str = "id", is_first_message
                 "content": (
                     "You are a late-night AI friend for teens who feel lonely or anxious. "
                     "Your responses are always empathetic, supportive, and friendly like a peer. "
-                    "Avoid being robotic or too formal. This is for voice chat, so avoid emojis or symbols."
+                    "Avoid being robotic or too formal. This is for voice chat, so avoid emojis or symbols. "
+                    "Give complete responses in 1-2 clear sentences that provide meaningful support."
                 )
             }
             intro_text = (
@@ -152,26 +212,39 @@ def get_ai_response_for_voice(user_text: str, lang: str = "id", is_first_message
 
         messages.append({"role": "user", "content": user_text})
 
+        # Reduced max_tokens to ensure complete sentences
         response = client.chat.completions.create(
             messages=messages,
-            max_tokens=150,
+            max_tokens=150,  # Reduced from 150 to give more buffer
             temperature=0.9,
             top_p=1.0,
             model=DEPLOYMENT_NAME,
         )
 
         ai_text = response.choices[0].message.content
-        return clean_text_for_tts(ai_text)
+        
+        # Clean text first
+        cleaned_text = clean_text_for_tts(ai_text)
+        
+        # Ensure the response ends at a complete sentence
+        final_text = truncate_at_sentence_end(cleaned_text)
+        
+        logger.info(f"AI response (before truncation): {ai_text}")
+        logger.info(f"AI response (after truncation): {final_text}")
+        
+        return final_text
+        
     except Exception as e:
         logger.error(f"Error getting AI response: {str(e)}")
-        return (
+        fallback_response = (
             "Maaf, aku sedang mengalami kendala teknis. "
-            "Tapi aku tetap di sini untuk menemani kamu. "
-            "Coba bicara lagi ya, aku pasti bisa mendengarkan."
+            "Tapi aku tetap di sini untuk menemani kamu."
         )
+        return fallback_response
 
 
 def clean_text_for_tts(text: str) -> str:
+    """Clean text for text-to-speech processing"""
     emoji_pattern = re.compile("[" 
         u"\U0001F600-\U0001F64F" 
         u"\U0001F300-\U0001F5FF" 
@@ -248,7 +321,7 @@ async def handle_voice_chat(audio_file) -> dict:
         # Fallback response
         fallback_text = (
             "Maaf, aku mengalami kendala dalam memproses suara kamu. "
-            "Tapi aku tetap di sini untuk menemani. Coba bicara lagi ya."
+            "Tapi aku tetap di sini untuk menemani."
         )
         try:
             fallback_audio = synthesize_speech(fallback_text, voice="id-ID-GadisNeural")

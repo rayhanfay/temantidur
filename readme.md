@@ -1,20 +1,22 @@
 # TemanTidur API 🌙✨
 
-**TemanTidur** is an AI companion specifically designed for teenagers who feel lonely at night. This API provides AI chat services, emotion detection from images, and voice chat to help teenagers overcome overthinking and loneliness.
+**TemanTidur** is an AI companion specifically designed for teenagers who feel lonely at night. This API provides comprehensive AI chat services, emotion detection from images, voice chat, and conversation recap features to help teenagers overcome overthinking and loneliness.
 
 ## 🚀 Main Features
 
 - **💬 AI Chat**: Empathetic conversations with AI that understands teenage feelings
-- **😊 Emotion Detection**: Emotion analysis from facial photos using Azure Custom Vision
-- **🚴 Activity Recommendations**: Provides positive activities based on emotion analysis results
-- **🎤 Voice Chat**: Voice communication with AI (WAV format)
-- **🌍 Multi-language**: Supports Indonesian and English
-- **🔐 Firebase Authentication**: Security with Firebase tokens
+- **😊 Emotion Detection**: Real-time emotion analysis from facial photos using Azure Custom Vision
+- **🎤 Voice Chat**: Full voice communication with AI (WAV format input/output)
+- **📝 Conversation Recap**: AI-generated summaries of chat conversations with date support
+- **🚴 Activity Recommendations**: Personalized calming activities based on emotion analysis
+- **🌍 Multi-language Support**: Full support for Indonesian and English with automatic detection
+- **🔐 Firebase Authentication**: Secure access with Firebase tokens
+- **🛡️ Content Filtering**: Built-in content safety with Azure Content Safety
 
 ## 📋 Prerequisites
 
 - Python 3.8+
-- Azure Cognitive Services Account
+- Azure Cognitive Services Account (Custom Vision, Speech, OpenAI)
 - Firebase Project with Authentication
 - Azure OpenAI Access
 
@@ -61,109 +63,35 @@ FIREBASE_JSON={"type":"service_account","project_id":"your-project",...}
 **Development Mode** (without Firebase Auth):
 
 ```bash
-# Uncomment development endpoints in main.py
-uvicorn main:app --reload
+# Development endpoints are enabled by default in main.py
+uvicorn main:app --reload --host 0.0.0.0 --port 8000
 ```
 
 **Production Mode** (with Firebase Auth):
 
 ```bash
+# Comment out development endpoints and uncomment production endpoints in main.py
 uvicorn main:app --host 0.0.0.0 --port 8000
 ```
 
 ## 📚 API Documentation
 
-📖 **Complete documentation**: https://documenter.getpostman.com/view/39192802/2sB2qi9JHZ
+📖 **Complete documentation**: https://documenter.getpostman.com/view/39192802/2sB2x5GsNs
 
 ### Base URL
 
-```
-https://your-domain.com/
-```
+**Development**: `http://localhost:8000`
+**Production**: `https://your-domain.com`
 
 ### Authentication
 
-All endpoints require Firebase ID Token:
+**Production Mode**: All endpoints require Firebase ID Token:
 
 ```http
 Authorization: Bearer <firebase_id_token>
 ```
 
-## 🎯 Endpoints
-
-### 1. Root Endpoint
-
-```http
-GET /
-```
-
-Basic API information and available endpoints.
-
-### 2. AI Chat
-
-```http
-POST /chat
-Content-Type: application/json
-Authorization: Bearer <token>
-
-{
-  "messages": [
-    {
-      "role": "user",
-      "content": "I feel sad tonight"
-    }
-  ],
-  "max_tokens": 200,
-  "temperature": 0.9
-}
-```
-
-**Response:**
-
-```json
-{
-  "reply": "I understand you're feeling sad tonight. I'm here to listen. Would you like to share what's making you feel this way? 🌙💙"
-}
-```
-
-### 3. Emotion Detection
-
-```http
-POST /detect-emotion
-Content-Type: multipart/form-data
-Authorization: Bearer <token>
-
-image: <file.jpg>
-```
-
-**Response:**
-
-```json
-{
-  "emotion": "sad",
-  "confidence": 0.85,
-  "recommendation": "I can see you're feeling sad tonight. Try listening to calming music or writing your feelings in a journal. I'm here with you. 💙",
-  "message": "I can see from your facial expression that you're feeling sad tonight. Thank you for sharing your feelings with me! 🌙✨"
-}
-```
-
-### 4. Voice Chat
-
-```http
-POST /voice-chat
-Content-Type: multipart/form-data
-Authorization: Bearer <token>
-
-audio: <file.wav>
-```
-
-**Response:**
-
-- Content-Type: `audio/wav`
-- Headers:
-  - `X-User-Text`: Text spoken by user
-  - `X-AI-Text`: AI response in text
-- Body: WAV audio of AI response
+**Development Mode**: No authentication required (for testing purposes)
 
 ## 🏗️ Project Structure
 
@@ -171,95 +99,109 @@ audio: <file.wav>
 teman-tidur-api/
 ├── main.py                    # FastAPI app & routes
 ├── config/
-│   ├── azure_config.py       # Azure services config
+│   ├── azure_config.py       # Azure services configuration
 │   └── auth.py               # Firebase authentication
 ├── utils/
-│   ├── chat_handler.py       # Text chat logic
-│   ├── emotion_handler.py    # Emotion detection
+│   ├── chat_handler.py       # Text chat logic & processing
+│   ├── emotion_handler.py    # Emotion detection & validation
 │   ├── voice_handler.py      # Voice chat processing
-│   ├── activity_recommender.py # Activity recommendations
-│   └── error_handler.py      # Exception handling
-├── requirements.txt
-├── .env
-└── README.md
+│   ├── recap_handler.py      # Conversation recap generation
+│   ├── activity_recommender.py # Activity recommendations & emotion messages
+│   └── error_handler.py      # Exception handling & error responses
+├── requirements.txt          # Python dependencies
+├── Dockerfile               # Docker container configuration
+├── .env                     # Environment variables
+└── README.md               # Project documentation
 ```
-
-## 🔧 Key Features Detail
-
-### Multi-Language Support
-
-- **Automatic detection**: API automatically detects language from user input
-
-### Error Handling
-
-- **Azure Content Filter**: Specific responses when content is filtered
-- **Network Issues**: Fallback responses for connection problems
-- **Rate Limiting**: Handling for Azure rate limits
-- **Validation**: Error handling for file formats and input
-
-### Audio Processing
-
-- **Format**: Only supports WAV format
-- **Transcription**: Azure Speech-to-Text
-- **Synthesis**: Azure Text-to-Speech with neural voice
-- **Languages**:
-  - Indonesian: `id-ID-GadisNeural`
-  - English: `en-US-JennyNeural`
-
-## 🔍 Monitoring & Logging
-
-API uses Python logging for monitoring:
-
-- Info level for normal operations
-- Warning for content filtering
-- Error for exceptions and failures
 
 ## 🚀 Deployment
 
-### Docker (Recommended)
+### Docker Deployment (Recommended)
 
 ```dockerfile
 FROM python:3.12.10
 
 WORKDIR /app
+
 COPY requirements.txt .
 RUN pip install -r requirements.txt
 
 COPY . .
+
 EXPOSE 8000
 
 CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000"]
 ```
 
-### Azure Services
+**Build and Run:**
 
-- **Azure Container App**
-- **Azure OpenAI**
-- **Azure Custom Vision**
-- **Azure Speech**
+```bash
+docker build -t temantidur-api .
+docker run -p 8000:8000 --env-file .env temantidur-api
+```
 
-## 🛡️ Security
+### Azure Deployment Options
 
-- **Firebase Authentication**: Token verification for every request
-- **Input Validation**: File format and size validation
-- **Content Filtering**: Azure Content Safety integration
-- **Rate Limiting**: Built-in handling from Azure services
+- **Azure Container Apps**: Recommended for scalability
+- **Azure App Service**: For simpler deployments
+- **Azure Container Instances**: For development/testing
+
+### Required Azure Services
+
+- **Azure OpenAI**: For AI chat capabilities
+- **Azure Custom Vision**: For emotion detection
+- **Azure Speech Services**: For voice chat functionality
+
+## 📊 Dependencies
+
+```txt
+fastapi                    # Web framework
+uvicorn                   # ASGI server
+python-dotenv            # Environment variable management
+requests                 # HTTP client for Azure APIs
+firebase-admin           # Firebase authentication
+python-multipart         # File upload support
+azure-cognitiveservices-speech  # Speech services
+openai>=1.82.1          # Azure OpenAI client
+```
+
+## 🧪 Testing
+
+### Development Mode
+
+```bash
+# Start development server
+uvicorn main:app --reload
+
+# Test endpoints without authentication
+curl http://localhost:8000/
+curl -X POST http://localhost:8000/chat -H "Content-Type: application/json" -d '{"messages": [{"role": "user", "content": "Hello"}]}'
+```
+
+### Production Testing
+
+```bash
+# Requires Firebase token
+curl -X POST https://your-domain.com/chat \
+  -H "Authorization: Bearer YOUR_FIREBASE_TOKEN" \
+  -H "Content-Type: application/json" \
+  -d '{"messages": [{"role": "user", "content": "Hello"}]}'
+```
 
 ## 🤝 Contributing
 
-1. Fork repository
-2. Create feature branch (`git checkout -b feature/AmazingFeature`)
-3. Commit changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to branch (`git push origin feature/AmazingFeature`)
-5. Create Pull Request
+1. Fork the repository
+2. Create a feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
 
 ## 🙏 Acknowledgments
 
-- **Azure Cognitive Services** for AI capabilities
-- **Firebase** for authentication
-- **FastAPI** for web framework
-- **OpenAI** for conversational AI
-
----
+- **Azure Cognitive Services** for comprehensive AI capabilities
+- **Firebase** for secure authentication infrastructure
+- **FastAPI** for modern, fast web framework
+- **OpenAI** for conversational AI technology
+- **Python Community** for excellent libraries and tools
 
 **Made with ❤️ for Indonesian teenagers who need someone to talk to at night** 🌙✨
