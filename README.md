@@ -6,37 +6,37 @@
   [![Kotlin](https://img.shields.io/badge/Language-Kotlin-blue.svg)](https://kotlinlang.org)
   [![API](https://img.shields.io/badge/API-24%2B-brightgreen.svg)](https://android-arsenal.com/api?level=24)
   
-  **Aplikasi Android inovatif yang dirancang sebagai teman curhat virtual dengan teknologi AI**
+  **Innovative Android application designed as a virtual companion with AI technology**
   
-  *Mengatasi perasaan kesepian dan memberikan dukungan emosional 24/7*
+  *Overcoming loneliness and providing emotional support 24/7*
   
 </div>
 
 ---
 
-## 📱 Tentang Aplikasi
+## 📱 About the App
 
-**Teman Tidur** adalah aplikasi Android yang memanfaatkan teknologi AI untuk memberikan teman bicara virtual yang selalu siap mendengarkan. Aplikasi ini dilengkapi dengan fitur deteksi emosi, voice chat, dan rekapitulasi harian untuk membantu pengguna dalam refleksi diri.
+**Teman Tidur** is an Android application that utilizes AI technology to provide a virtual companion that's always ready to listen. This app is equipped with emotion detection, voice chat, and daily recap features to help users in self-reflection.
 
-### ✨ Fitur Utama
+### ✨ Key Features
 
-| Fitur | Deskripsi |
-|-------|-----------|
-| 🔐 **Authentication** | Registrasi dan login aman dengan Firebase Auth |
-| 💬 **Chat Interaktif** | Komunikasi AI melalui pesan teks real-time |
-| 🎤 **Voice Chat** | Interaksi suara yang responsif |
-| 😊 **Deteksi Emosi** | Analisis ekspresi wajah menggunakan kamera |
-| 📝 **Rekap Harian** | Rangkuman percakapan otomatis untuk refleksi |
-| 🎯 **Rekomendasi** | Rekomendasi aktivitas berdasarkan kondisi emosional |
-| 👤 **Manajemen Profil** | Pengaturan username, password, dan foto profil |
-| 🌍 **Multi-bahasa** | Dukungan Bahasa Indonesia dan Inggris |
-| 📱 **Widget & Onboarding** | Akses cepat dan pengalaman pengguna yang ramah |
+| Feature | Description |
+|---------|-------------|
+| 🔐 **Authentication** | Secure registration and login with Firebase Auth |
+| 💬 **Interactive Chat** | AI communication through real-time text messages |
+| 🎤 **Voice Chat** | Responsive voice interaction |
+| 😊 **Emotion Detection** | Facial expression analysis using camera |
+| 📝 **Daily Recap** | Automatic conversation summary for reflection |
+| 🎯 **Recommendations** | Activity recommendations based on emotional state |
+| 👤 **Profile Management** | Username, password, and profile picture settings |
+| 🌍 **Multi-language** | Support for Indonesian and English |
+| 📱 **Widget & Onboarding** | Quick access and user-friendly experience |
 
 ---
 
-## 🏗️ Arsitektur
+## 🏗️ Architecture
 
-Aplikasi ini dibangun menggunakan **Clean Architecture** dengan pola **MVVM (Model-View-ViewModel)**.
+This application is built using **Clean Architecture** with **MVVM (Model-View-ViewModel)** pattern.
 
 ```
 ┌─────────────────┐    ┌─────────────────┐    ┌─────────────────┐
@@ -87,7 +87,7 @@ Aplikasi ini dibangun menggunakan **Clean Architecture** dengan pola **MVVM (Mod
 ## 🚀 Quick Start
 
 ### Prerequisites
-- **Android Studio**: Iguana 2023.2.1 atau lebih baru
+- **Android Studio**: Iguana 2023.2.1 or newer
 - **JDK**: Version 17
 - **Android SDK**: API level 24+
 
@@ -98,13 +98,13 @@ cd TemanTidur
 ```
 
 ### 2️⃣ Firebase Setup
-1. Buka [Firebase Console](https://console.firebase.google.com/)
-2. Buat proyek baru
-3. Tambahkan Android app dengan package: `com.hackathon.temantidur`
-4. Download `google-services.json` → letakkan di `app/`
+1. Open [Firebase Console](https://console.firebase.google.com/)
+2. Create a new project
+3. Add Android app with package: `com.hackathon.temantidur`
+4. Download `google-services.json` → place in `app/`
 
 ### 3️⃣ API Configuration
-Buat file `secrets.properties` di root directory:
+Create `secrets.properties` file in root directory:
 ```properties
 # Chat & Recap API
 API_BASE_URL="YOUR_CHAT_API_URL_HERE"
@@ -114,9 +114,9 @@ EMOTION_API_BASE_URL="YOUR_EMOTION_API_URL_HERE"
 ```
 
 ### 4️⃣ Run Application
-1. Buka project di Android Studio
+1. Open project in Android Studio
 2. Sync Gradle files
-3. Run di emulator atau device
+3. Run on emulator or device
 
 ---
 
@@ -156,13 +156,13 @@ temantidur/
 
 ## 🤝 Contributing
 
-Kami menyambut kontribusi dari developer lain! Silakan:
+We welcome contributions from other developers! Please:
 
-1. Fork repository ini
-2. Buat feature branch (`git checkout -b feature/AmazingFeature`)
-3. Commit perubahan (`git commit -m 'Add some AmazingFeature'`)
-4. Push ke branch (`git push origin feature/AmazingFeature`)
-5. Buka Pull Request
+1. Fork this repository
+2. Create a feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
 
 ---
 
@@ -179,7 +179,7 @@ Kami menyambut kontribusi dari developer lain! Silakan:
 
 ## 📞 Support
 
-Jika Anda memiliki pertanyaan atau masalah:
+If you have any questions or issues:
 
 - 📧 **Email**: yourcomfyshadow@gmail.com
 
@@ -187,7 +187,7 @@ Jika Anda memiliki pertanyaan atau masalah:
 
 <div align="center">
   
-  **⭐ Jangan lupa berikan star jika project ini membantu! ⭐**
+  **⭐ Don't forget to give a star if this project helps you! ⭐**
   
   Made with ❤️ in Indonesia
   
