@@ -24,10 +24,10 @@
 |-------|-----------|
 | 🔐 **Authentication** | Registrasi dan login aman dengan Firebase Auth |
 | 💬 **Chat Interaktif** | Komunikasi AI melalui pesan teks real-time |
-| 🎤 **Voice Chat** | Interaksi suara yang natural dan responsif |
+| 🎤 **Voice Chat** | Interaksi suara yang responsif |
 | 😊 **Deteksi Emosi** | Analisis ekspresi wajah menggunakan kamera |
 | 📝 **Rekap Harian** | Rangkuman percakapan otomatis untuk refleksi |
-| 🎯 **Rekomendasi** | Saran konten berdasarkan kondisi emosional |
+| 🎯 **Rekomendasi** | Rekomendasi aktivitas berdasarkan kondisi emosional |
 | 👤 **Manajemen Profil** | Pengaturan username, password, dan foto profil |
 | 🌍 **Multi-bahasa** | Dukungan Bahasa Indonesia dan Inggris |
 | 📱 **Widget & Onboarding** | Akses cepat dan pengalaman pengguna yang ramah |
