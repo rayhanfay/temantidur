@@ -165,34 +165,6 @@ We welcome contributions from other developers! Please:
 
 ---
 
-## 👥 Team
-
-| Role | Member |
-|------|--------|
-| 📋 **Product Manager** | [Rayhan Al Farassy](https://github.com/rayhanfay) |
-| 🎨 **UI/UX Designer** | [Rayhan Al Farassy](https://github.com/rayhanfay), [Agus Syuhada](https://github.com/AgusSyuhada) |
-| 📱 **Android Developer** | [Agus Syuhada](https://github.com/AgusSyuhada), [M Hashfi Fanny AYD](https://github.com/hashfiayd) |
-| ☁️ **Cloud Engineer** | [Rayhan Al Farassy](https://github.com/rayhanfay) |
-
----
-
-## 📚 Documentation
-
-- 📖 **GitHub Repository**: [https://github.com/rayhanfay/temantidur.git](https://github.com/rayhanfay/temantidur.git)
-- 🚀 **API Documentation**: [Postman Collection](https://documenter.getpostman.com/view/39192802/2sB2x5GsNs)
-- 🎥 **Video Documentation**: [Coming Soon](https://example.com) *(Link will be updated)*
-
----
-
-## 📞 Support
-
-If you have any questions or issues:
-
-- 🐛 Bug Reports: [Issues](https://github.com/rayhanfay/temantidur/issues)
-- 📧 **Email**: yourcomfyshadow@gmail.com
-
----
-
 <div align="center">
   
   **⭐ Don't forget to give a star if this project helps you! ⭐**
