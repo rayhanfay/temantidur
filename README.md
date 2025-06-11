@@ -126,17 +126,16 @@ EMOTION_API_BASE_URL="YOUR_EMOTION_API_URL_HERE"
 temantidur/
 └── app/
     └── src/main/java/com/hackathon/temantidur/
-        ├── 🔧 common/           # Shared utilities & models
-        ├── 🗄️ data/             # Data layer
+        ├── common/           # Shared utilities & models
+        ├── data/             # Data layer
         │   ├── auth/            # Authentication data source
         │   ├── chat/            # Chat data management  
         │   └── emotion/         # Emotion detection data
-        ├── 💉 di/               # Dependency injection modules
-        ├── 💼 domain/           # Business logic layer
+        ├── domain/           # Business logic layer
         │   ├── entities/        # Data models
         │   ├── repositories/    # Repository interfaces
         │   └── usecases/        # Use case implementations
-        ├── 🎨 presentation/     # UI layer
+        ├── presentation/     # UI layer
         │   ├── auth/            # Login/Register screens
         │   ├── chat/            # Chat interface
         │   ├── emotion/         # Emotion detection UI
@@ -146,10 +145,10 @@ temantidur/
         │   ├── sidemenu/        # Side navigation drawer
         │   ├── splash/          # App launch screen
         │   └── voicechat/       # Voice interaction UI
-        ├── 📡 receivers/        # Broadcast receivers
-        ├── 🔄 services/         # Background services
-        ├── 🛠️ utils/            # Helper classes
-        └── 📱 widgets/          # Home screen widgets
+        ├── receivers/        # Broadcast receivers
+        ├── services/         # Background services
+        ├── utils/            # Helper classes
+        └── widgets/          # Home screen widgets
 ```
 
 ---
@@ -189,6 +188,7 @@ We welcome contributions from other developers! Please:
 
 If you have any questions or issues:
 
+- 🐛 Bug Reports: [Issues](https://github.com/rayhanfay/temantidur/issues)
 - 📧 **Email**: yourcomfyshadow@gmail.com
 
 ---
