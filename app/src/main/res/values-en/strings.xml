@@ -101,7 +101,7 @@
     <string name="change_username_button">Change Username</string>
 
     <!--  Fragment Profile  -->
-    <string name="user_name">User Name</string>
+    <string name="user_name">Username</string>
     <string name="change_email">Change Email</string>
     <string name="change_password">Change Password</string>
 
@@ -303,7 +303,7 @@
     <string name="btn_change_password">Change Password</string>
     <string name="btn_logout">Logout</string>
     <string name="btn_cancel">Cancel</string>
-    <string name="btn_ok">OK</string>
+    <string name="btn_ok">Ok</string>
 
     <!-- Username Change Dialog -->
     <string name="current_username_label">Current Username</string>

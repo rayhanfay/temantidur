@@ -3,22 +3,22 @@
     <string name="tagline" translatable="false">Your Comfy Shadow</string>
     <string name="register_title">Silahkan Masukkan Data Diri Kamu</string>
     <string name="email_form">"Email</string>
-    <string name="username_form">"Username</string>
-    <string name="password_form">"Password</string>
-    <string name="confirm_password_form">"Confirm Password</string>
+    <string name="username_form">Nama Pengguna</string>
+    <string name="password_form">Kata Sandi</string>
+    <string name="confirm_password_form">Konfirmasi Kata Sandi</string>
     <string name="email_hint">Ketik Email kamu…</string>
     <string name="username_hint">Ketik Username kamu…</string>
-    <string name="password_hint">Ketik Password kamu…</string>
-    <string name="confirm_password_hint">Ketik Ulang Password kamu…</string>
+    <string name="password_hint">Ketik Kata Sandi kamu…</string>
+    <string name="confirm_password_hint">Ketik Ulang Kata Sandi kamu…</string>
     <string name="register_hint">Belum Punya Akun?</string>
     <string name="login_hint">Sudah Punya Akun?</string>
     <string name="register_suggestion">Silahkan Daftar</string>
     <string name="login_suggestion">Silahkan Masuk</string>
     <string name="login_button">Login</string>
     <string name="register_button">Daftar</string>
-    <string name="login_success">Successful!</string>
+    <string name="login_success">Berhasil!</string>
     <string name="login_success_message">Teman Tidur Menunggumu…</string>
-    <string name="next_button">Next</string>
+    <string name="next_button">Berikutnya</string>
     <string name="login_failed">Oops!</string>
     <string name="login_failed_message">Sepertinya ada yang Salah…</string>
     <string name="retry_button">Retry</string>
@@ -34,7 +34,7 @@
 
     <!--  Dialog Confirmation  -->
     <string name="confirmation_title">Konfirmasi</string>
-    <string name="confirmation_message">Apakah Anda yakin ingin melanjutkan tindakan ini?</string>
+    <string name="confirmation_message">Apakah yakin ingin melanjutkan tindakan ini?</string>
     <string name="yes">Ya</string>
     <string name="no">Tidak</string>
     <string name="confirmation_icon_description">Ikon peringatan untuk konfirmasi</string>
@@ -45,22 +45,22 @@
     <string name="failed_icon_description">Ikon tanda silang untuk kegagalan</string>
 
     <!--  Dialog Logout Confirmation  -->
-    <string name="logout_title">Konfirmasi Logout</string>
-    <string name="logout_message">Apakah Anda yakin ingin keluar dari akun ini?</string>
+    <string name="logout_title">Konfirmasi Keluar</string>
+    <string name="logout_message">Apakah yakin ingin keluar dari akun ini?</string>
 
     <!-- Main Menu -->
     <!-- Toolbar -->
     <string name="greeting_evening">Selamat Malam</string>
-    <string name="settings">Settings</string>
+    <string name="settings">Pengaturan</string>
 
     <!-- Navigation Menu -->
-    <string name="nav_chat">Chat</string>
-    <string name="nav_voice_assistant">Voice Assistant</string>
+    <string name="nav_chat">Mengobrol</string>
+    <string name="nav_voice_assistant">Asisten Suara</string>
     <string name="nav_emotion_check">Cek Emosi</string>
 
     <!-- Content Descriptions for Accessibility -->
     <string name="desc_settings_button">Tombol pengaturan</string>
-    <string name="desc_chat_button">Tombol chat</string>
+    <string name="desc_chat_button">Tombol mengobrol</string>
     <string name="desc_voice_button">Tombol asisten suara</string>
     <string name="desc_emotion_button">Tombol cek emosi</string>
 
@@ -80,42 +80,42 @@
     <string name="about_us">Tentang Kami</string>
     <string name="logout">Keluar</string>
     <string name="daily_reminder">Pengingat Harian</string>
-    <string name="app_version">App Version 1.0</string>
+    <string name="app_version">Veri Aplikasi 1.0</string>
 
     <!--  Change Password  -->
     <string name="change_password_title">Ubah Kata Sandi</string>
     <string name="current_password_form">Kata Sandi Saat Ini</string>
-    <string name="current_password_hint">Masukkan kata sandi Anda saat ini</string>
+    <string name="current_password_hint">Masukkan kata sandi saat ini</string>
     <string name="new_password_form">Kata Sandi Baru</string>
     <string name="new_password_hint">Masukkan kata sandi baru</string>
     <string name="confirm_new_password_form">Konfirmasi Kata Sandi Baru</string>
-    <string name="confirm_new_password_hint">Konfirmasi kata sandi baru Anda</string>
+    <string name="confirm_new_password_hint">Konfirmasi kata sandi baru</string>
     <string name="change_password_button">Ubah Sandi</string>
 
     <!--  Change Email  -->
     <string name="change_email_title">Ubah Alamat Email</string>
     <string name="current_email_form">Alamat Email Saat Ini</string>
-    <string name="current_email_hint">Masukkan alamat email Anda saat ini</string>
+    <string name="current_email_hint">Masukkan alamat email saat ini</string>
     <string name="new_email_form">Alamat Email Baru</string>
-    <string name="new_email_hint">Masukkan alamat email baru Anda</string>
+    <string name="new_email_hint">Masukkan alamat email baru</string>
     <string name="change_email_button">Ubah Email</string>
 
     <!--  Change Username  -->
-    <string name="change_username">Ganti Username</string>
-    <string name="current_username_form">Username Saat Ini</string>
-    <string name="current_username_hint">Masukkan username Anda saat ini</string>
-    <string name="new_username_form">Username Baru</string>
-    <string name="new_username_hint">Masukkan username baru</string>
-    <string name="change_username_button">Ubah Username</string>
+    <string name="change_username">Ganti Nama Pengguna</string>
+    <string name="current_username_form">Nama Pengguna Saat Ini</string>
+    <string name="current_username_hint">Masukkan Nama Pengguna saat ini</string>
+    <string name="new_username_form">Nama Pengguna Baru</string>
+    <string name="new_username_hint">Masukkan Nama Pengguna Baru</string>
+    <string name="change_username_button">Ubah Nama Pengguna</string>
 
     <!--  Fragment Profile  -->
-    <string name="user_name">User Name</string>
-    <string name="change_email">Change Email</string>
-    <string name="change_password">Change Password</string>
+    <string name="user_name">Nama Pengguna</string>
+    <string name="change_email">Ganti Email</string>
+    <string name="change_password">Ganti Kata Sandi</string>
 
     <!--  Fragment About Us  -->
     <string name="about_us_desc">Aplikasi Teman Tidur, adalah sebuah aplikasi solusi berbasis AI yang bisa menjadi teman curhat untuk remaja yang merasakan kesepian di malam hari. Aplikasi ini serupa dengan chatbot dengan menambahkan fitur seperti mendeteksi visual emosi dengan interaksi yang supportif\n\n Teman Tidur diciptakan sebagai langkah awal menjaga kesehatan mental khususnya remaja yang masih rentan secara emosional dan perilaku. Aplikasi ini diharapkan bisa berdampak positif khususnya dalam mewujudkan Indonesia generasi emas</string>
-    <string name="people_behind">People behind this project :</string>
+    <string name="people_behind">Orang-orang di balik proyek ini:</string>
     <string name="people_1">Rayhan</string>
     <string name="github_profile_of_person_1">Profil GitHub %1$s</string>
     <string name="people_2">Hashfi</string>
@@ -140,10 +140,10 @@
     <string name="welcome">Selamat Datang</string>
     <string name="onboarding_description_placeholder">Deskripsi onboarding akan ditampilkan di sini.</string>
     <string name="cancel_button">Batal</string>
-    <string name="title_onboarding">Title Onboarding</string>
-    <string name="title_desc_onboarding">Title Description Onboarding</string>
-    <string name="onboarding_desc">Onboarding Description</string>
-    <string name="user_email">User Email</string>
+    <string name="title_onboarding">Judul Onboarding</string>
+    <string name="title_desc_onboarding">Judul Deskripsi Onboarding</string>
+    <string name="onboarding_desc">Deskripsi Onboarding</string>
+    <string name="user_email">Email Pengguna</string>
 
     <!-- Daily Reminder -->
     <string name="reminder_enabled">Pengingat harian diaktifkan</string>
@@ -163,15 +163,15 @@
     <!-- Login Validation Messages -->
     <string name="error_email_required">Email harus diisi</string>
     <string name="error_email_invalid">Format email tidak valid</string>
-    <string name="error_password_required">Password harus diisi</string>
-    <string name="error_password_min_length">Password minimal 6 karakter</string>
+    <string name="error_password_required">Kata Sandi harus diisi</string>
+    <string name="error_password_min_length">Kata Sandi minimal 6 karakter</string>
 
     <!-- Login Success -->
     <string name="login_success_title">Login Berhasil</string>
 
     <!-- Login Error Messages -->
     <string name="error_email_not_registered">Email tidak terdaftar</string>
-    <string name="error_invalid_credentials">Email atau password salah</string>
+    <string name="error_invalid_credentials">Email atau kata sandi salah</string>
     <string name="error_too_many_attempts_title">Login Dibatasi</string>
     <string name="error_too_many_attempts_message">Terlalu banyak percobaan login yang gagal. Akun Anda sementara diblokir. Silakan coba lagi nanti atau reset password.</string>
 
@@ -193,14 +193,14 @@
     <string name="error_login_failed_message">Login gagal: %1$s</string>
 
     <!-- Registration validation messages -->
-    <string name="error_username_required">Username harus diisi</string>
-    <string name="error_username_min_length">Username minimal 3 karakter</string>
-    <string name="error_confirm_password_required">Konfirmasi password harus diisi</string>
-    <string name="error_password_mismatch">Password tidak cocok</string>
+    <string name="error_username_required">Nama pengguna harus diisi</string>
+    <string name="error_username_min_length">Nama pengguna minimal 3 karakter</string>
+    <string name="error_confirm_password_required">Konfirmasi kata sandi harus diisi</string>
+    <string name="error_password_mismatch">Kata Sandi tidak cocok</string>
 
     <!-- Dialog titles -->
-    <string name="dialog_registration_success">Registrasi Berhasil</string>
-    <string name="dialog_registration_failed">Registrasi Gagal</string>
+    <string name="dialog_registration_success">Daftar Berhasil</string>
+    <string name="dialog_registration_failed">Daftar Gagal</string>
 
     <!-- Chat Activity Messages -->
     <string name="error_play_ai_audio">Gagal memutar audio AI</string>
@@ -233,11 +233,11 @@
     <string name="emotion_surprised_title">Wah, Kamu Kelihatan Kaget!</string>
     <string name="emotion_neutral_title">Ekspresi Kamu Cukup Tenang</string>
     <string name="emotion_unknown_title">Hmm, Aku Mendeteksi Sesuatu</string>
-    <string name="emotion_unknown">Unknown</string>
+    <string name="emotion_unknown">Tidak dikenal</string>
     <string name="no_ai_description">Tidak ada deskripsi dari AI.</string>
 
     <!-- Home Fragment -->
-    <string name="hows_your_day">How\'s Your Day %s</string>
+    <string name="hows_your_day">Bagaimana Harimu %s</string>
     <string name="no_emotion_data">Belum ada data emosi terakhir</string>
 
     <!-- Default Recommendations -->
@@ -249,9 +249,9 @@
     <string name="exact_alarm_permission_required">Mohon izinkan Setel alarm dan pengingat untuk pengingat harian.</string>
     <string name="daily_reminder_enabled">Pengingat harian diaktifkan pada pukul %s</string>
     <string name="daily_reminder_disabled">Pengingat harian dinonaktifkan</string>
-    <string name="logout_failed">Logout gagal. Silakan coba lagi.</string>
+    <string name="logout_failed">Keluar gagal. Silakan coba lagi.</string>
     <string name="exit_app_title">Keluar Aplikasi</string>
-    <string name="exit_app_message">Apakah Anda yakin ingin keluar dari TemanTidur?</string>
+    <string name="exit_app_message">Apakah yakin ingin keluar dari TemanTidur?</string>
     <string name="no_daily_recap_available">Belum ada recap harian yang tersedia.\nMulai chat untuk membuat recap!</string>
     <string name="onboarding_permission_rejected">Beberapa izin ditolak. Fitur mungkin tidak berfungsi dengan baik.</string>
 
@@ -270,11 +270,11 @@
     <string name="silahkan_pose_apa_adanya">Silahkan pose apa adanya</string>
     <string name="aku_akan_coba_memahamimu">Aku akan coba memahamimu</string>
     <string name="chat_hint">Ketik pesan...</string>
-    <string name="send_message_desc">Send Message</string>
+    <string name="send_message_desc">Kirim Pesan</string>
     <string name="rekomendasi_aktivitas">Rekomendasi Aktivitas</string>
-    <string name="ubah_username_title">Ubah Username</string>
+    <string name="ubah_username_title">Ubah Nama Pengguna</string>
     <string name="langkah_selanjutnya_dialog">Langkah Selanjutnya</string>
-    <string name="email_change_instruction">Setelah Anda mengklik tautan verifikasi di email:\n\n1. Kembali ke aplikasi ini\n2. Logout dan login kembali\n3. Email Anda akan berubah secara otomatis</string>
+    <string name="email_change_instruction">Setelah mengklik tautan verifikasi di email:\n\n1. Kembali ke aplikasi ini\n2. Keluar dan login kembali\n3. Email Anda akan berubah secara otomatis</string>
     <string name="mengerti">Mengerti</string>
     <string name="nanti">Nanti</string>
     <string name="btnback_description">Kembali</string>
@@ -302,44 +302,44 @@
     <string name="error_title">Error</string>
 
     <!-- Buttons -->
-    <string name="btn_change_username">Ubah Username</string>
+    <string name="btn_change_username">Ubah Nama Pengguna</string>
     <string name="btn_change_email">Ubah Email</string>
-    <string name="btn_change_password">Ubah Password</string>
+    <string name="btn_change_password">Ubah Kata Sandi</string>
     <string name="btn_logout">Keluar</string>
     <string name="btn_cancel">Batal</string>
-    <string name="btn_ok">OK</string>
+    <string name="btn_ok">Ok</string>
 
     <!-- Username Change Dialog -->
-    <string name="current_username_label">Username Saat Ini</string>
-    <string name="new_username_label">Username Baru</string>
-    <string name="username_empty_error">Username baru tidak boleh kosong</string>
-    <string name="username_min_length_error">Username minimal 3 karakter</string>
-    <string name="username_max_length_error">Username maksimal 20 karakter</string>
-    <string name="username_invalid_chars_error">Username hanya boleh mengandung huruf, angka, underscore, dan titik</string>
-    <string name="username_same_as_current_error">Username baru sama dengan username saat ini</string>
+    <string name="current_username_label">Nama Pengguna Saat Ini</string>
+    <string name="new_username_label">Nama Pengguna Baru</string>
+    <string name="username_empty_error">Nama pengguna baru tidak boleh kosong</string>
+    <string name="username_min_length_error">Nama pengguna minimal 3 karakter</string>
+    <string name="username_max_length_error">Nama pengguna maksimal 20 karakter</string>
+    <string name="username_invalid_chars_error">Nama pengguna hanya boleh mengandung huruf, angka, underscore, dan titik</string>
+    <string name="username_same_as_current_error">Nama pengguna baru sama dengan nama pengguna saat ini</string>
 
     <!-- Email Change Dialog -->
     <string name="current_email_label">Email Saat Ini</string>
     <string name="new_email_label">Email Baru</string>
-    <string name="current_password_label">Password Saat Ini</string>
+    <string name="current_password_label">Kata Sandi Saat Ini</string>
     <string name="new_email_empty_error">Email baru harus diisi</string>
     <string name="email_invalid_format_error">Format email tidak valid</string>
-    <string name="password_required_verification_error">Password diperlukan untuk verifikasi</string>
+    <string name="password_required_verification_error">Kata sandi diperlukan untuk verifikasi</string>
 
     <!-- Password Change Dialog -->
-    <string name="new_password_label">Password Baru</string>
-    <string name="confirm_new_password_label">Konfirmasi Password Baru</string>
-    <string name="current_password_empty_error">Password saat ini harus diisi</string>
-    <string name="new_password_empty_error">Password baru harus diisi</string>
-    <string name="password_min_length_error">Password minimal 6 karakter</string>
-    <string name="confirm_password_empty_error">Konfirmasi password harus diisi</string>
-    <string name="password_mismatch_error">Konfirmasi password tidak cocok</string>
+    <string name="new_password_label">Kata Sandi Baru</string>
+    <string name="confirm_new_password_label">Konfirmasi Kata Sandi Baru</string>
+    <string name="current_password_empty_error">Kata sandi saat ini harus diisi</string>
+    <string name="new_password_empty_error">Kata sandi baru harus diisi</string>
+    <string name="password_min_length_error">Kata sandi minimal 6 karakter</string>
+    <string name="confirm_password_empty_error">Konfirmasi kata sandi harus diisi</string>
+    <string name="password_mismatch_error">Konfirmasi kata sandi tidak cocok</string>
 
     <!-- Authentication Error Messages -->
-    <string name="user_not_found_error">User tidak ditemukan</string>
-    <string name="wrong_password_error">Password salah</string>
+    <string name="user_not_found_error">Pengguna tidak ditemukan</string>
+    <string name="wrong_password_error">Kata Sandi salah</string>
     <string name="network_error">Masalah koneksi internet</string>
-    <string name="password_verification_failed_error">Verifikasi password gagal: %1$s</string>
+    <string name="password_verification_failed_error">Verifikasi kata sandi gagal: %1$s</string>
     <string name="email_already_in_use_error">Email sudah digunakan oleh akun lain</string>
     <string name="send_verification_failed_error">Gagal mengirim email verifikasi</string>
 
@@ -459,7 +459,7 @@
         <item>lumayan</item>
     </string-array>
 
-    <string name="profile_preview">Preview foto profil</string>
+    <string name="profile_preview">Pratinjau foto profil</string>
     <string name="female">Perempuan</string>
     <string name="male">Laki-laki</string>
     <string name="female_profile_1">Profil Perempuan 1</string>
