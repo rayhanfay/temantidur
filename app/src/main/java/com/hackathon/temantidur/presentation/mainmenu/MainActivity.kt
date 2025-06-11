@@ -17,7 +17,12 @@ import android.util.Log
 import android.view.GestureDetector
 import android.view.MotionEvent
 import android.view.View
+import android.view.animation.AlphaAnimation
+import android.view.animation.Animation
+import android.view.animation.AnimationSet
 import android.view.animation.AnimationUtils
+import android.view.animation.TranslateAnimation
+import android.view.inputmethod.InputMethodManager
 import android.widget.ImageView
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
@@ -83,6 +88,10 @@ class MainActivity : AppCompatActivity(), ToolbarVisibilityListener,
     private var audioFile: File? = null
     private var isRecording = false
 
+    private val dotsHandler = Handler(Looper.getMainLooper())
+    private var dotsRunnable: Runnable? = null
+    private var dotCount = 0
+
     private var activeNavItem: Int = R.id.nav_chat
 
     private val requestPermissionLauncher = registerForActivityResult(
@@ -132,14 +141,16 @@ class MainActivity : AppCompatActivity(), ToolbarVisibilityListener,
             setRecordingListener(object : VoiceRecordingManager.RecordingListener {
                 override fun onRecordingStarted() {
                     runOnUiThread {
-                        binding.voiceRecordOverlay.visibility = View.VISIBLE
+                        animateVoiceRecordOverlay(true)
+                        startDotsAnimation()
                         isRecording = true
                     }
                 }
 
                 override fun onRecordingStopped(audioFile: File) {
                     runOnUiThread {
-                        binding.voiceRecordOverlay.visibility = View.GONE
+                        animateVoiceRecordOverlay(false)
+                        stopDotsAnimation()
                         isRecording = false
                         this@MainActivity.audioFile = audioFile
                         Log.d("MainActivity", "Recording stopped. Navigating to ChatFragment with audio file: ${audioFile.absolutePath}")
@@ -149,7 +160,8 @@ class MainActivity : AppCompatActivity(), ToolbarVisibilityListener,
 
                 override fun onRecordingError(error: String) {
                     runOnUiThread {
-                        binding.voiceRecordOverlay.visibility = View.GONE
+                        animateVoiceRecordOverlay(false)
+                        stopDotsAnimation()
                         isRecording = false
                         Toast.makeText(this@MainActivity, error, Toast.LENGTH_SHORT).show()
                     }
@@ -435,8 +447,16 @@ class MainActivity : AppCompatActivity(), ToolbarVisibilityListener,
             if (drawer.isDrawerOpen(GravityCompat.END)) {
                 drawer.closeDrawer(GravityCompat.END)
             } else {
+                hideKeyboard()
                 drawer.openDrawer(GravityCompat.END)
             }
+        }
+    }
+
+    private fun hideKeyboard() {
+        val imm = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+        currentFocus?.windowToken?.let {
+            imm.hideSoftInputFromWindow(it, 0)
         }
     }
 
@@ -662,14 +682,14 @@ class MainActivity : AppCompatActivity(), ToolbarVisibilityListener,
 
         if (currentFragment != null && currentFragment.isAdded) {
             when (currentFragment) {
-                is ProfileFragment, is AboutUsFragment -> {
+                is ProfileFragment -> {
                     setToolbarVisibility(false)
                     binding.bottomNavigation.visibility = View.GONE
                     binding.root.findViewById<View>(R.id.main_layout_root).background =
                         ContextCompat.getDrawable(this, R.drawable.bg_gradient_secondary)
                 }
 
-                is RecommendationFragment -> {
+                is RecommendationFragment, is AboutUsFragment -> {
                     setToolbarVisibility(false)
                     binding.bottomNavigation.visibility = View.VISIBLE
                     binding.root.findViewById<View>(R.id.main_layout_root).background =
@@ -744,6 +764,7 @@ class MainActivity : AppCompatActivity(), ToolbarVisibilityListener,
 
         if (binding.drawerLayout.isDrawerOpen(GravityCompat.END)) {
             binding.drawerLayout.closeDrawer(GravityCompat.END)
+            hideKeyboard()
             return
         }
 
@@ -762,6 +783,17 @@ class MainActivity : AppCompatActivity(), ToolbarVisibilityListener,
                     return
                 }
             }
+
+            if (fragmentManager.backStackEntryCount <= 1 || currentFragment is HomeFragment) {
+                hideKeyboard()
+                showExitConfirmationDialog()
+            } else {
+                hideKeyboard()
+                super.onBackPressed()
+            }
+        } else {
+            hideKeyboard()
+            showExitConfirmationDialog()
         }
 
         if (fragmentManager.backStackEntryCount <= 1 || currentFragment is HomeFragment) {
@@ -771,6 +803,80 @@ class MainActivity : AppCompatActivity(), ToolbarVisibilityListener,
         }
     }
 
+    private fun animateVoiceRecordOverlay(show: Boolean) {
+        val overlay = binding.voiceRecordOverlay
+        if (show) {
+            overlay.visibility = View.VISIBLE
+            val animationSet = AnimationSet(true)
+
+            // Slide up animation
+            val slideUp = TranslateAnimation(
+                Animation.RELATIVE_TO_SELF, 0f,
+                Animation.RELATIVE_TO_SELF, 0f,
+                Animation.RELATIVE_TO_SELF, 1f,
+                Animation.RELATIVE_TO_SELF, 0f
+            )
+            slideUp.duration = 300
+            animationSet.addAnimation(slideUp)
+
+            // Fade in animation
+            val fadeIn = AlphaAnimation(0f, 1f)
+            fadeIn.duration = 300
+            animationSet.addAnimation(fadeIn)
+
+            overlay.startAnimation(animationSet)
+        } else {
+            val animationSet = AnimationSet(true)
+
+            // Slide down animation
+            val slideDown = TranslateAnimation(
+                Animation.RELATIVE_TO_SELF, 0f,
+                Animation.RELATIVE_TO_SELF, 0f,
+                Animation.RELATIVE_TO_SELF, 0f,
+                Animation.RELATIVE_TO_SELF, 1f
+            )
+            slideDown.duration = 300
+            animationSet.addAnimation(slideDown)
+
+            // Fade out animation
+            val fadeOut = AlphaAnimation(1f, 0f)
+            fadeOut.duration = 300
+            animationSet.addAnimation(fadeOut)
+
+            animationSet.setAnimationListener(object : Animation.AnimationListener {
+                override fun onAnimationStart(animation: Animation?) {}
+                override fun onAnimationEnd(animation: Animation?) {
+                    overlay.visibility = View.GONE
+                }
+                override fun onAnimationRepeat(animation: Animation?) {}
+            })
+            overlay.startAnimation(animationSet)
+        }
+    }
+
+    // Animation for the "..." text
+    private fun startDotsAnimation() {
+        dotCount = 0
+        dotsRunnable = object : Runnable {
+            override fun run() {
+                dotCount = (dotCount + 1) % 4 // Cycle through 0, 1, 2, 3 dots
+                val dots = when (dotCount) {
+                    0 -> ""
+                    1 -> "."
+                    2 -> ".."
+                    else -> "..."
+                }
+                binding.textRecordingDots.text = dots
+                dotsHandler.postDelayed(this, 500) // Update every 500ms
+            }
+        }
+        dotsHandler.post(dotsRunnable!!)
+    }
+
+    private fun stopDotsAnimation() {
+        dotsRunnable?.let { dotsHandler.removeCallbacks(it) }
+        binding.textRecordingDots.text = "" // Clear dots when not recording
+    }
 
     private fun showExitConfirmationDialog() {
         ConfirmationDialogFragment.newInstance(

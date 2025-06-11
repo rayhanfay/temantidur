@@ -225,6 +225,12 @@ class ChatFragment : Fragment() {
                     view?.post {
                         chatAdapter.submitChatMessages(messages)
 
+                        binding.chatRecyclerView.layoutManager?.let { layoutManager ->
+                            if (layoutManager is LinearLayoutManager) {
+                                layoutManager.requestLayout()
+                            }
+                        }
+
                         if (messages.isNotEmpty() && (wasAtBottom || messages.size > previousCount)) {
                             Log.d(TAG, "Scrolling to bottom. Was at bottom: $wasAtBottom, has new message: ${messages.size > previousCount}")
                             binding.chatRecyclerView.post {
@@ -253,13 +259,13 @@ class ChatFragment : Fragment() {
                         viewModel.voiceResponseHandled()
 
                         view?.post {
-                            if (isAtBottom()) {
+//                            if (isAtBottom()) {
                                 binding.chatRecyclerView.post {
                                     viewLifecycleOwner.lifecycleScope.launch {
                                         delay(300)
                                         scrollToBottom(smooth = true)
                                     }
-                                }
+//                                }
                             }
                         }
                     }
@@ -399,7 +405,9 @@ class ChatFragment : Fragment() {
             binding.etChatMessage.setText("")
 
             binding.chatRecyclerView.post {
-                scrollToBottom(smooth = true)
+                binding.chatRecyclerView.post {
+                    scrollToBottom(smooth = true)
+                }
             }
         }
     }
@@ -463,6 +471,8 @@ class ChatFragment : Fragment() {
         if (::voiceChatHandler.isInitialized) {
             voiceChatHandler.stopRecording()
         }
+        clearFocusAndUpdateState()
+        hideKeyboardOnly()
     }
 
     override fun onPause() {

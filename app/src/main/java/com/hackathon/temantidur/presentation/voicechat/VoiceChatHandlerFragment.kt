@@ -90,7 +90,7 @@ class VoiceChatHandlerFragment(
 
     private fun hideRecordingUI() {
         val micButton = binding.btnMic
-        micButton.setBackgroundResource(R.drawable.rotating_gradient_circle)
+        micButton.setBackgroundResource(R.drawable.bg_circle_softmagenta)
         micButton.animate()
             .scaleX(1.0f)
             .scaleY(1.0f)
