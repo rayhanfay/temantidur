@@ -34,7 +34,7 @@ class ChatStorageManager(context: Context) {
 
     suspend fun saveDailyRecap(recap: DailyRecap) {
         val recaps = loadDailyRecaps().toMutableList()
-        recaps.removeAll { it.date == recap.date } // Remove existing recap for same date
+        recaps.removeAll { it.date == recap.date }
         recaps.add(recap)
 
         val json = gson.toJson(recaps)
@@ -86,6 +86,16 @@ class ChatStorageManager(context: Context) {
             sharedPreferences.edit()
                 .remove(KEY_CHAT_MESSAGES)
                 .remove(KEY_LAST_CHAT_DATE)
+                .apply()
+        }
+    }
+
+    suspend fun clearAllChatData() {
+        withContext(Dispatchers.IO) {
+            sharedPreferences.edit()
+                .remove(KEY_CHAT_MESSAGES)
+                .remove(KEY_LAST_CHAT_DATE)
+                .remove(KEY_DAILY_RECAPS)
                 .apply()
         }
     }

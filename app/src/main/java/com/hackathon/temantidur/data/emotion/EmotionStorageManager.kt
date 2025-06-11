@@ -55,4 +55,11 @@ class EmotionStorageManager(private val context: Context) {
             null
         }
     }
+
+    fun clearAllEmotionData() {
+        sharedPreferences.edit()
+            .remove(KEY_LAST_EMOTION_RESULT)
+            .remove(KEY_LAST_ANALYSIS_TIME)
+            .apply()
+    }
 }

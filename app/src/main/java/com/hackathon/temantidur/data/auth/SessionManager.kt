@@ -17,6 +17,7 @@ class SessionManager(context: Context) {
     private val KEY_ONBOARDING_SEEN = "onboarding_seen"
     private val KEY_DAILY_REMINDER_ENABLED = "daily_reminder_enabled"
     private val PROFILE_PICTURE_RES_ID = "profile_picture_res_id"
+    private val KEY_LAST_USER_ID = "last_user_id"
 
     private val pref: SharedPreferences =
         context.getSharedPreferences(PREF_NAME, Context.MODE_PRIVATE)
@@ -31,13 +32,42 @@ class SessionManager(context: Context) {
         return pref.getInt(PROFILE_PICTURE_RES_ID, R.drawable.ic_profile)
     }
 
+    fun getLastUserId(): String? {
+        return pref.getString(KEY_LAST_USER_ID, null)
+    }
+
+    fun clearUserSessionData() {
+        editor.remove(KEY_USER_ID)
+        editor.remove(KEY_USERNAME)
+        editor.remove(KEY_EMAIL)
+        editor.remove(PROFILE_PICTURE_RES_ID)
+        editor.apply()
+    }
+
     fun createLoginSession(userId: String, username: String, email: String) {
+        val lastStoredUserId = getLastUserId()
+
+        if (lastStoredUserId != null && lastStoredUserId != userId) {
+            clearUserSessionData()
+            editor.putBoolean("should_clear_all_user_data", true)
+        } else {
+            editor.putBoolean("should_clear_all_user_data", false)
+        }
+
         editor.putBoolean(KEY_IS_LOGGED_IN, true)
         editor.putString(KEY_USER_ID, userId)
         editor.putString(KEY_USERNAME, username)
         editor.putString(KEY_EMAIL, email)
+        editor.putString(KEY_LAST_USER_ID, userId)
         editor.apply()
     }
+
+    fun shouldClearAllUserData(): Boolean {
+        val shouldClear = pref.getBoolean("should_clear_all_user_data", false)
+        editor.remove("should_clear_all_user_data").apply()
+        return shouldClear
+    }
+
 
     fun isLoggedIn(): Boolean {
         val firebaseUser = auth.currentUser
@@ -61,12 +91,9 @@ class SessionManager(context: Context) {
     }
 
     fun logoutUser() {
-        val onboardingSeen = hasSeenOnboarding()
-        val dailyReminderEnabled = isDailyReminderEnabled()
+        editor.putBoolean(KEY_IS_LOGGED_IN, false)
+        editor.apply()
         auth.signOut()
-        editor.clear().apply()
-        editor.putBoolean(KEY_ONBOARDING_SEEN, onboardingSeen).apply()
-        editor.putBoolean(KEY_DAILY_REMINDER_ENABLED, dailyReminderEnabled).apply()
     }
 
     fun setLanguage(languageCode: String) {

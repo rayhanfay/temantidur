@@ -654,8 +654,6 @@ class MainActivity : AppCompatActivity(), ToolbarVisibilityListener,
         try {
             setupDailyReminderAlarm(false)
             sessionManager.logoutUser()
-            auth.signOut()
-            clearUserData()
             val intent = Intent(this, AuthActivity::class.java)
             intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
             startActivity(intent)
@@ -664,17 +662,6 @@ class MainActivity : AppCompatActivity(), ToolbarVisibilityListener,
         } catch (e: Exception) {
             Toast.makeText(this, getString(R.string.logout_failed), Toast.LENGTH_SHORT).show()
         }
-    }
-
-    private fun clearUserData() {
-        val sharedPref = getSharedPreferences("UserSession", MODE_PRIVATE)
-        val onboardingSeen = sharedPref.getBoolean("onboarding_seen", false)
-        val dailyReminderEnabled =
-            sharedPref.getBoolean("daily_reminder_enabled", false)
-        sharedPref.edit().clear().apply()
-        sharedPref.edit().putBoolean("onboarding_seen", onboardingSeen).apply()
-        sharedPref.edit().putBoolean("daily_reminder_enabled", dailyReminderEnabled)
-            .apply()
     }
 
     private val onBackStackChangedListener = OnBackStackChangedListener {

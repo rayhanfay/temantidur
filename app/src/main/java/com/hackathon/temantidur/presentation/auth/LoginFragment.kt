@@ -7,14 +7,18 @@ import android.text.TextWatcher
 import android.view.*
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.lifecycleScope // Import lifecycleScope
 import com.hackathon.temantidur.R
 import com.hackathon.temantidur.data.auth.SessionManager
+import com.hackathon.temantidur.data.chat.ChatStorageManager // Import ChatStorageManager
+import com.hackathon.temantidur.data.emotion.EmotionStorageManager // Import EmotionStorageManager
 import com.hackathon.temantidur.databinding.FragmentLoginBinding
 import com.hackathon.temantidur.domain.AuthResult
 import com.hackathon.temantidur.presentation.ViewModelFactory
 import com.hackathon.temantidur.presentation.mainmenu.MainActivity
 import com.hackathon.temantidur.utils.PasswordToggleHelper
 import com.hackathon.temantidur.utils.dialogs.*
+import kotlinx.coroutines.launch // Import launch
 
 class LoginFragment : Fragment() {
 
@@ -22,6 +26,8 @@ class LoginFragment : Fragment() {
     private val binding get() = _binding!!
     private lateinit var vm: AuthViewModel
     private lateinit var sessionManager: SessionManager
+    private lateinit var chatStorageManager: ChatStorageManager
+    private lateinit var emotionStorageManager: EmotionStorageManager
     private var loadingDialog: LoadingDialogFragment? = null
 
     override fun onCreateView(
@@ -34,6 +40,8 @@ class LoginFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         vm = ViewModelProvider(this, ViewModelFactory())[AuthViewModel::class.java]
         sessionManager = SessionManager(requireContext())
+        chatStorageManager = ChatStorageManager(requireContext())
+        emotionStorageManager = EmotionStorageManager(requireContext())
 
         setupErrorClearingListeners()
 
@@ -110,6 +118,14 @@ class LoginFragment : Fragment() {
                         user?.username ?: "",
                         user?.email ?: ""
                     )
+
+                    if (sessionManager.shouldClearAllUserData()) {
+                        lifecycleScope.launch {
+                            chatStorageManager.clearAllChatData()
+                            emotionStorageManager.clearAllEmotionData()
+                        }
+                    }
+
                     SuccessDialogFragment.newInstance(
                         getString(R.string.login_success_title),
                         result.message

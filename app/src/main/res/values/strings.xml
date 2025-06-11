@@ -66,7 +66,7 @@
 
     <!-- Status Bar -->
     <string name="time_placeholder">12:30</string>
-    <string name="recap_saya">Recap Saya</string>
+    <string name="recap_saya">Rekap Saya</string>
     <string name="rekomendasi_kegiatan">Rekomendasi Kegiatan</string>
     <string name="background_logo">Background Logo</string>
     <string name="logo_teman_tidur">Logo Teman Tidur</string>
@@ -285,7 +285,7 @@
     <string name="message_emotion_result">lorem ipsum</string>
     <string name="rekomendasi_aktivitas_button">Rekomendasi Aktivitas</string>
     <string name="how_s_your_day">Bagaimana Harimu</string>
-    <string name="recap_button">Recap Saya</string>
+    <string name="recap_button">Rekap Saya</string>
     <string name="rekomendasi_button">Rekomendasi</string>
     <string name="cerita_denganku">Cerita denganku</string>
     <string name="cerita_denganku_hint">Ketuk untuk menulis ceritamu</string>
