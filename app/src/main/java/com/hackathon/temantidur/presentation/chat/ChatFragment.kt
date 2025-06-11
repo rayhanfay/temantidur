@@ -62,7 +62,7 @@ class ChatFragment : Fragment() {
         recapGenerationJob?.cancel()
         recapGenerationJob = viewLifecycleOwner.lifecycleScope.launch {
             delay(10000)
-            viewModel.generateTodayRecap()
+            viewModel.generateAndSaveRecapForToday()
         }
     }
 

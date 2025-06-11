@@ -10,6 +10,8 @@ import com.hackathon.temantidur.data.chat.model.Message
 import com.hackathon.temantidur.data.auth.AuthManager
 import com.hackathon.temantidur.data.chat.model.VoiceApiResponse
 import com.hackathon.temantidur.utils.AudioConverter
+import com.hackathon.temantidur.data.chat.model.RecapRequest
+import com.hackathon.temantidur.data.chat.model.RecapResponse
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import okhttp3.OkHttpClient
@@ -302,6 +304,43 @@ class TemanTidurRepository(private val context: Context) {
         } catch (e: Exception) {
             Log.e("TemanTidurRepository", "Token refresh check failed: ${e.message}")
             false
+        }
+    }
+
+    suspend fun getRecapFromApi(date: String, messages: List<Message>): ApiResult<RecapResponse> {
+        return try {
+            val result = getRecapInternal(date, messages)
+            if (result is ApiResult.Error && result.code == 401) {
+                Log.d("TemanTidurRepository", "Recap failed with 401, refreshing token...")
+                val refreshedToken = authManager.forceRefreshToken()
+                if (refreshedToken != null) {
+                    getRecapInternal(date, messages)
+                } else {
+                    ApiResult.Error("Authentication failed. Please login again.", 401)
+                }
+            } else {
+                result
+            }
+        } catch (e: Exception) {
+            Log.e("TemanTidurRepository", "Exception in getRecapFromApi: ${e.message}", e)
+            ApiResult.Error("Network error: ${e.message}")
+        }
+    }
+
+    private suspend fun getRecapInternal(date: String, messages: List<Message>): ApiResult<RecapResponse> {
+        val token = authManager.getValidToken() ?: return ApiResult.Error("Authentication token is missing.", 401)
+
+        val request = RecapRequest(date = date, messages = messages)
+        val response = api.getRecap("Bearer $token", request)
+
+        return if (response.isSuccessful) {
+            response.body()?.let { ApiResult.Success(it) }
+                ?: ApiResult.Error("Empty recap response body.")
+        } else {
+            ApiResult.Error(
+                message = getErrorMessage(response.code(), response.errorBody()?.string()),
+                code = response.code()
+            )
         }
     }
 

@@ -15,6 +15,12 @@ import com.hackathon.temantidur.databinding.FragmentHomeBinding
 import com.hackathon.temantidur.presentation.chat.ChatViewModel
 import com.hackathon.temantidur.presentation.recommendation.RecommendationFragment
 import com.hackathon.temantidur.data.emotion.EmotionStorageManager
+import androidx.lifecycle.lifecycleScope
+import com.hackathon.temantidur.common.ApiResult
+import com.hackathon.temantidur.utils.dialogs.FailedDialogFragment
+import com.hackathon.temantidur.utils.dialogs.LoadingDialogFragment
+import kotlinx.coroutines.flow.collectLatest
+import kotlinx.coroutines.launch
 
 import androidx.lifecycle.ViewModelProvider
 import com.hackathon.temantidur.presentation.emotion.EmotionResultFragment
@@ -43,6 +49,7 @@ class HomeFragment : Fragment() {
         setupUsernameText()
         setupMainContentButtons()
         displayLastEmotionEmoji()
+        setupRecapObserver()
     }
 
     override fun onResume() {
@@ -107,6 +114,30 @@ class HomeFragment : Fragment() {
         }
     }
 
+    private fun setupRecapObserver() {
+        viewLifecycleOwner.lifecycleScope.launch {
+            chatViewModel.recapGenerationState.collectLatest { result ->
+                when (result) {
+                    is ApiResult.Loading -> {
+                    }
+                    is ApiResult.Success -> {
+                        (activity as? MainActivity)?.replaceFragment(
+                            RecapFragment(),
+                            showToolbar = false,
+                            tag = "RecapFragment"
+                        )
+                    }
+                    is ApiResult.Error -> {
+                        FailedDialogFragment.newInstance(
+                            getString(R.string.failed_title),
+                            result.message
+                        ).show(parentFragmentManager, FailedDialogFragment.TAG)
+                    }
+                }
+            }
+        }
+    }
+
     private fun navigateToLastEmotionResult() {
         val lastEmotionResult = emotionStorageManager.getLastEmotionResult()
 
@@ -164,4 +195,9 @@ class HomeFragment : Fragment() {
             chatViewModel.cleanup()
         }
     }
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
+    }
+
 }

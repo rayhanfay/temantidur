@@ -3,6 +3,8 @@ package com.hackathon.temantidur.data.chat.api
 
 import com.hackathon.temantidur.data.chat.model.ChatRequest
 import com.hackathon.temantidur.data.chat.model.ChatResponse
+import com.hackathon.temantidur.data.chat.model.RecapRequest
+import com.hackathon.temantidur.data.chat.model.RecapResponse
 import okhttp3.MultipartBody
 import okhttp3.ResponseBody
 import retrofit2.Response
@@ -33,4 +35,11 @@ interface TemanTidurApiService {
         @Header("Authorization") authorization: String,
         @Part audio: MultipartBody.Part
     ): Response<ResponseBody>
+
+    @POST("recap")
+    @Headers("Content-Type: application/json")
+    suspend fun getRecap(
+        @Header("Authorization") token: String,
+        @Body request: RecapRequest
+    ): Response<RecapResponse>
 }

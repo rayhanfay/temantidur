@@ -76,6 +76,22 @@
                 android:name="android.appwidget.provider"
                 android:resource="@xml/app_widget_info" />
         </receiver>
+
+        <service
+            android:name=".services.AiDailyRecapService"
+            android:exported="false"
+            android:permission="android.permission.BIND_JOB_SERVICE" />
+
+        <receiver
+            android:name=".receivers.AutoRecapReceiver"
+            android:enabled="true"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.hackathon.temantidur.ACTION_AUTO_RECAP" />
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+            </intent-filter>
+        </receiver>
+
     </application>
 
 </manifest>

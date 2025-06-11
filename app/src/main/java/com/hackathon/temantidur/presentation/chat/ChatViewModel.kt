@@ -12,6 +12,8 @@ import com.hackathon.temantidur.data.chat.TemanTidurRepository
 import com.hackathon.temantidur.data.chat.model.ChatMessage
 import com.hackathon.temantidur.data.chat.model.DailyRecap
 import com.hackathon.temantidur.data.chat.model.VoiceApiResponse
+import com.hackathon.temantidur.data.chat.model.Message
+import com.hackathon.temantidur.data.chat.model.RecapResponse
 import com.hackathon.temantidur.utils.RecapGenerator
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
@@ -35,6 +37,8 @@ class ChatViewModel(application: Application) : AndroidViewModel(application) {
     val chatMessages: StateFlow<List<ChatMessage>> = _chatMessages
     private val _isTyping = MutableStateFlow(false)
     val isTyping: StateFlow<Boolean> = _isTyping
+    private val _recapGenerationState = MutableStateFlow<ApiResult<Unit>>(ApiResult.Loading())
+    val recapGenerationState: StateFlow<ApiResult<Unit>> = _recapGenerationState
     private val _voiceResponse = MutableStateFlow<VoiceApiResponse?>(null)
     val voiceResponse: StateFlow<VoiceApiResponse?> = _voiceResponse
     fun voiceResponseHandled() {
@@ -219,44 +223,41 @@ class ChatViewModel(application: Application) : AndroidViewModel(application) {
         }
     }
 
-    fun generateWeeklyRecaps() {
+    fun generateAndSaveRecapForToday() {
         viewModelScope.launch {
-            try {
-                val dateFormat = SimpleDateFormat("dd.MM.yyyy", Locale.getDefault())
-                val dayFormat = SimpleDateFormat("EEEE", Locale("id", "ID"))
-                val allMessages = chatStorageManager.loadChatMessages()
+            _recapGenerationState.value = ApiResult.Loading()
+            val today = SimpleDateFormat("dd.MM.yyyy", Locale.getDefault()).format(Date())
+            val allMessages = storageManager.loadChatMessages()
 
-                for (i in 0..6) {
-                    val calendar = Calendar.getInstance()
-                    calendar.add(Calendar.DAY_OF_YEAR, -i)
+            val todayMessages = allMessages.filter {
+                SimpleDateFormat("dd.MM.yyyy", Locale.getDefault()).format(Date(it.timestamp)) == today
+            }
 
-                    val targetDate = dateFormat.format(calendar.time)
-                    val targetDayLabel = dayFormat.format(calendar.time)
+            if (todayMessages.isEmpty()) {
+                _recapGenerationState.value = ApiResult.Error("Tidak ada percakapan hari ini untuk direkap.")
+                return@launch
+            }
 
-                    val dayMessages = allMessages.filter { message ->
-                        val messageCalendar = Calendar.getInstance()
-                        messageCalendar.timeInMillis = message.timestamp
+            val apiMessages = todayMessages.map { Message(if (it.isIncoming) "assistant" else "user", it.message) }
 
-                        messageCalendar.get(Calendar.YEAR) == calendar.get(Calendar.YEAR) &&
-                                messageCalendar.get(Calendar.DAY_OF_YEAR) == calendar.get(Calendar.DAY_OF_YEAR)
-                    }
-
-                    if (dayMessages.isNotEmpty()) {
-                        val summary = recapGenerator.generateDailyRecap(dayMessages)
-
-                        val recap = DailyRecap(
-                            date = targetDate,
-                            dayLabel = targetDayLabel,
-                            summary = summary.toString()
-                        )
-
-                        chatStorageManager.saveDailyRecap(recap)
-                        Log.d("ChatViewModel", "Recap generated for $targetDate")
-                    }
+            when (val result = repository.getRecapFromApi(today, apiMessages)) {
+                is ApiResult.Success -> {
+                    val recapData = result.data
+                    val dayLabel = SimpleDateFormat("EEEE", Locale("id", "ID")).format(Date())
+                    val dailyRecap = DailyRecap(
+                        date = recapData.date,
+                        dayLabel = dayLabel,
+                        summary = recapData.recap
+                    )
+                    storageManager.saveDailyRecap(dailyRecap)
+                    _recapGenerationState.value = ApiResult.Success(Unit)
                 }
-
-            } catch (e: Exception) {
-                Log.e("ChatViewModel", "Error generating weekly recaps", e)
+                is ApiResult.Error -> {
+                    _recapGenerationState.value = ApiResult.Error(result.message, result.code)
+                }
+                is ApiResult.Loading -> {
+                    // Do nothing
+                }
             }
         }
     }
@@ -289,7 +290,7 @@ class ChatViewModel(application: Application) : AndroidViewModel(application) {
                         "ChatViewModel",
                         "Received AI text response: '${result.data.take(30)}...'"
                     )
-                    generateTodayRecap()
+                    generateAndSaveRecapForToday()
                 }
 
                 is ApiResult.Error -> {
@@ -378,7 +379,7 @@ class ChatViewModel(application: Application) : AndroidViewModel(application) {
                             "Received AI voice audio data. Size: ${responseData.audioData?.size ?: 0}"
                         )
 
-                        generateTodayRecap()
+                        generateAndSaveRecapForToday()
                     }
 
                     is ApiResult.Error -> {
