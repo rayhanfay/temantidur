@@ -1,145 +1,203 @@
-# Teman Tidur
+# Teman Tidur 🌙
 
-![Teman Tidur App Showcase](https://raw.githubusercontent.com/aripov21/TemanTidur/main/art/showcase.png)
+<div align="center">
+  
+  [![Android](https://img.shields.io/badge/Platform-Android-green.svg)](https://android.com)
+  [![Kotlin](https://img.shields.io/badge/Language-Kotlin-blue.svg)](https://kotlinlang.org)
+  [![API](https://img.shields.io/badge/API-24%2B-brightgreen.svg)](https://android-arsenal.com/api?level=24)
+  [![License](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+  
+  **Aplikasi Android inovatif yang dirancang sebagai teman curhat virtual dengan teknologi AI**
+  
+  *Mengatasi perasaan kesepian dan memberikan dukungan emosional 24/7*
+  
+</div>
 
-**Teman Tidur** adalah aplikasi Android inovatif yang dirancang untuk menjadi teman curhat virtual Anda. Aplikasi ini memanfaatkan teknologi AI untuk memberikan teman bicara yang selalu ada, membantu pengguna mengatasi perasaan kesepian, dan memberikan dukungan emosional. Fitur utamanya meliputi chat interaktif (teks dan suara), deteksi emosi melalui wajah, serta rekapitulasi percakapan harian untuk refleksi diri.
+---
 
-## Daftar Isi
-- [Fitur Utama](#fitur-utama)
-- [Arsitektur Proyek](#arsitektur-proyek)
-- [Tumpukan Teknologi](#tumpukan-teknologi)
-- [Persiapan & Instalasi](#persiapan--instalasi)
-  - [Prasyarat](#prasyarat)
-  - [Konfigurasi Kunci API](#konfigurasi-kunci-api)
-  - [Menjalankan Aplikasi](#menjalankan-aplikasi)
-- [Struktur Folder](#struktur-folder)
-- [Kontributor](#kontributor)
+## 📱 Tentang Aplikasi
 
-## Fitur Utama
+**Teman Tidur** adalah aplikasi Android yang memanfaatkan teknologi AI untuk memberikan teman bicara virtual yang selalu siap mendengarkan. Aplikasi ini dilengkapi dengan fitur deteksi emosi, voice chat, dan rekapitulasi harian untuk membantu pengguna dalam refleksi diri.
 
-- **Authentication**: Proses registrasi dan login pengguna yang aman menggunakan Firebase Authentication.
-- **Chat Interaktif**: Berkomunikasi dengan AI melalui pesan teks.
-- **Voice Chat**: Mengirim dan menerima pesan suara untuk interaksi yang lebih natural.
-- **Deteksi Emosi**: Menganalisis ekspresi wajah pengguna menggunakan kamera untuk mendeteksi emosi secara *real-time*.
-- **Rekomendasi Konten**: Memberikan rekomendasi artikel atau kegiatan berdasarkan kondisi emosional pengguna.
-- **Rekap Harian**: AI secara otomatis membuat rangkuman percakapan harian untuk membantu pengguna merefleksikan perasaan mereka.
-- **Manajemen Profil**: Pengguna dapat mengganti username, password, dan foto profil.
-- **Multi-bahasa**: Mendukung Bahasa Indonesia dan Bahasa Inggris.
-- **Onboarding & Widget**: Proses onboarding yang ramah pengguna dan widget di layar utama untuk akses cepat.
+### ✨ Fitur Utama
 
-## Arsitektur Proyek
+| Fitur | Deskripsi |
+|-------|-----------|
+| 🔐 **Authentication** | Registrasi dan login aman dengan Firebase Auth |
+| 💬 **Chat Interaktif** | Komunikasi AI melalui pesan teks real-time |
+| 🎤 **Voice Chat** | Interaksi suara yang natural dan responsif |
+| 😊 **Deteksi Emosi** | Analisis ekspresi wajah menggunakan kamera |
+| 📝 **Rekap Harian** | Rangkuman percakapan otomatis untuk refleksi |
+| 🎯 **Rekomendasi** | Saran konten berdasarkan kondisi emosional |
+| 👤 **Manajemen Profil** | Pengaturan username, password, dan foto profil |
+| 🌍 **Multi-bahasa** | Dukungan Bahasa Indonesia dan Inggris |
+| 📱 **Widget & Onboarding** | Akses cepat dan pengalaman pengguna yang ramah |
 
-Aplikasi ini dibangun menggunakan prinsip-prinsip **Clean Architecture** dengan pola arsitektur **Model-View-ViewModel (MVVM)**.
+---
 
-- **`domain`**: Lapisan ini berisi logika bisnis inti aplikasi (use cases) dan definisi model data (entities) tanpa bergantung pada detail implementasi Android.
-- **`data`**: Lapisan ini bertanggung jawab untuk menyediakan data ke lapisan `domain`. Ini berisi implementasi dari *repositories* dan mengelola sumber data (API remote dan penyimpanan lokal/Firebase).
-- **`presentation`**: Lapisan ini adalah UI layer, yang terdiri dari Activities, Fragments (View) dan ViewModels. Bertugas untuk menampilkan data kepada pengguna dan menangani interaksi pengguna.
+## 🏗️ Arsitektur
 
-Pemisahan ini membuat aplikasi menjadi lebih modular, mudah diuji (*testable*), dan lebih mudah untuk dikelola (*maintainable*).
+Aplikasi ini dibangun menggunakan **Clean Architecture** dengan pola **MVVM (Model-View-ViewModel)**.
 
-## Tumpukan Teknologi
+```
+┌─────────────────┐    ┌─────────────────┐    ┌─────────────────┐
+│   PRESENTATION  │    │      DOMAIN     │    │      DATA       │
+│                 │    │                 │    │                 │
+│  • Activities   │◄──►│  • Use Cases    │◄──►│  • Repositories │
+│  • Fragments    │    │  • Entities     │    │  • Data Sources │
+│  • ViewModels   │    │  • Interfaces   │    │  • API Services │
+└─────────────────┘    └─────────────────┘    └─────────────────┘
+```
 
-Berikut adalah daftar teknologi utama dan pustaka pihak ketiga yang digunakan dalam proyek ini:
+### 📂 Layer Responsibilities
 
-- **Bahasa**: [Kotlin](https://kotlinlang.org/)
-- **UI**:
-  - [View Binding & Data Binding](https://developer.android.com/topic/libraries/data-binding)
-  - [Material Components for Android](https://material.io/develop/android)
-  - [Lottie](https://github.com/airbnb/lottie-android) untuk animasi
-- **Asynchronous**: [Kotlin Coroutines](https://kotlinlang.org/docs/coroutines-overview.html) & [Flow](https://developer.android.com/kotlin/flow)
-- **Arsitektur**:
-  - [Android Jetpack Components](https://developer.android.com/jetpack)
-  - [Lifecycle (ViewModel & LiveData)](https://developer.android.com/topic/libraries/architecture/lifecycle)
-  - [Navigation Component](https://developer.android.com/guide/navigation)
-  - [Room](https://developer.android.com/jetpack/androidx/releases/room) untuk database lokal (cache).
-- **Dependency Injection**: [Hilt](https://dagger.dev/hilt/)
-- **Networking**:
-  - [Retrofit2](https://square.github.io/retrofit/) & [OkHttp3](https://square.github.io/okhttp/) untuk panggilan API.
-  - [Gson](https://github.com/google/gson) untuk parsing JSON.
-- **Backend & Services**:
-  - [Firebase Authentication](https://firebase.google.com/docs/auth)
-  - [Firebase Realtime Database](https://firebase.google.com/docs/database)
-  - [Cloud Storage for Firebase](https://firebase.google.com/docs/storage)
+- **🎨 Presentation**: UI components (Activities, Fragments, ViewModels)
+- **💼 Domain**: Business logic (Use Cases, Entities, Repository interfaces)
+- **🗄️ Data**: Data management (Repository implementations, API services, local storage)
+
+---
+
+## 🛠️ Tech Stack
+
+### Core Technologies
+- **Language**: [Kotlin](https://kotlinlang.org/) - 100% Kotlin
+- **Architecture**: MVVM + Clean Architecture
+- **Async**: [Coroutines](https://kotlinlang.org/docs/coroutines-overview.html) & [Flow](https://developer.android.com/kotlin/flow)
+
+### UI & UX
+- **UI Framework**: [View Binding](https://developer.android.com/topic/libraries/view-binding) & [Data Binding](https://developer.android.com/topic/libraries/data-binding)
+- **Design System**: [Material Design Components](https://material.io/develop/android)
+- **Animations**: [Lottie](https://github.com/airbnb/lottie-android)
 - **Image Loading**: [Glide](https://github.com/bumptech/glide)
-- **Logging**: [Chucker](https://github.com/ChuckerTeam/chucker) untuk inspeksi HTTP.
 
-## Persiapan & Instalasi
+### Backend & Services
+- **Authentication**: [Firebase Auth](https://firebase.google.com/docs/auth)
+- **Database**: [Firebase Realtime Database](https://firebase.google.com/docs/database)
+- **Storage**: [Cloud Storage for Firebase](https://firebase.google.com/docs/storage)
+- **Local DB**: [Room](https://developer.android.com/jetpack/androidx/releases/room)
 
-Ikuti langkah-langkah berikut untuk menjalankan proyek ini di lingkungan pengembangan Anda.
+### Development Tools
+- **DI**: [Hilt](https://dagger.dev/hilt/)
+- **Networking**: [Retrofit2](https://square.github.io/retrofit/) + [OkHttp3](https://square.github.io/okhttp/)
+- **JSON Parsing**: [Gson](https://github.com/google/gson)
+- **HTTP Inspection**: [Chucker](https://github.com/ChuckerTeam/chucker)
+- **Navigation**: [Navigation Component](https://developer.android.com/guide/navigation)
 
-### Prasyarat
-- Android Studio Iguana | 2023.2.1 atau yang lebih baru.
-- JDK 17.
-- Android SDK dengan API level minimum 24.
+---
 
-### Konfigurasi Kunci API
-Aplikasi ini memerlukan beberapa kunci API agar dapat berfungsi dengan baik. Anda perlu membuat tiga file konfigurasi di dalam direktori `temantidur/` dan `temantidur/app/`.
+## 🚀 Quick Start
 
-1.  **Firebase Setup**
-    - Buka [Firebase Console](https://console.firebase.google.com/).
-    - Buat proyek Firebase baru.
-    - Tambahkan aplikasi Android ke proyek Firebase Anda dengan package name `com.hackathon.temantidur`.
-    - Unduh file `google-services.json` dan letakkan di dalam direktori `temantidur/app/`.
+### Prerequisites
+- **Android Studio**: Iguana 2023.2.1 atau lebih baru
+- **JDK**: Version 17
+- **Android SDK**: API level 24+
 
-2.  **API URL Backend**
-    - Buat file bernama `secrets.properties` di dalam direktori root proyek (`temantidur/`).
-    - Tambahkan URL dasar untuk API yang Anda gunakan. File ini akan di-generate otomatis oleh Github Actions, namun untuk development lokal, Anda perlu membuatnya manual.
-    ```properties
-    # Base URL untuk API Chat & Rekap
-    API_BASE_URL="MASUKKAN_URL_API_CHAT_ANDA_DI_SINI"
+### 1️⃣ Clone Repository
+```bash
+git clone https://github.com/aripov21/TemanTidur.git
+cd TemanTidur
+```
 
-    # Base URL untuk API Deteksi Emosi
-    EMOTION_API_BASE_URL="MASUKKAN_URL_API_EMOSI_ANDA_DI_SINI"
-    ```
-    *Catatan: Pastikan URL diapit oleh tanda kutip ganda (`"`).*
+### 2️⃣ Firebase Setup
+1. Buka [Firebase Console](https://console.firebase.google.com/)
+2. Buat proyek baru
+3. Tambahkan Android app dengan package: `com.hackathon.temantidur`
+4. Download `google-services.json` → letakkan di `app/`
 
-3.  **SDK Location**
-    - File `local.properties` biasanya dibuat secara otomatis oleh Android Studio dan berisi path ke SDK Anda. Pastikan file ini ada di direktori root (`temantidur/`). Jika tidak, buat manual.
-    ```properties
-    sdk.dir=/path/to/your/android/sdk
-    ```
+### 3️⃣ API Configuration
+Buat file `secrets.properties` di root directory:
+```properties
+# Chat & Recap API
+API_BASE_URL="YOUR_CHAT_API_URL_HERE"
 
-### Menjalankan Aplikasi
+# Emotion Detection API  
+EMOTION_API_BASE_URL="YOUR_EMOTION_API_URL_HERE"
+```
 
-1.  **Clone Repositori**
-    ```bash
-    git clone [https://github.com/aripov21/TemanTidur.git](https://github.com/aripov21/TemanTidur.git)
-    cd TemanTidur
-    ```
-2.  **Buka di Android Studio**
-    - Buka Android Studio.
-    - Pilih "Open" dan arahkan ke folder `TemanTidur` yang baru saja Anda clone.
-3.  **Sinkronkan Gradle**
-    - Tunggu hingga Android Studio selesai menyinkronkan file Gradle.
-4.  **Jalankan Aplikasi**
-    - Pilih target (emulator atau perangkat fisik).
-    - Klik tombol "Run" (▶️).
+### 4️⃣ Run Application
+1. Buka project di Android Studio
+2. Sync Gradle files
+3. Run di emulator atau device
 
-## Struktur Folder
+---
 
+## 📁 Project Structure
+
+```
 temantidur/
-├── app/
-│   ├── src/
-│   │   ├── main/
-│   │   │   ├── java/com/hackathon/temantidur/
-│   │   │   │   ├── common/         # Kelas-kelas umum (misal: ApiResult)
-│   │   │   │   ├── data/           # Repositori, Sumber Data (API, Lokal), Model Data
-│   │   │   │   ├── domain/         # Entitas dan Use Cases (Interface Repositori)
-│   │   │   │   ├── presentation/   # UI Layer (Activities, Fragments, ViewModels, Adapters)
-│   │   │   │   ├── di/             # Modul Dependency Injection (Hilt)
-│   │   │   │   ├── services/       # Service (misal: AiDailyRecapService)
-│   │   │   │   └── utils/          # Kelas-kelas utilitas
-│   │   │   ├── res/                # Resource (layout, drawable, string, dll)
-│   │   │   └── AndroidManifest.xml
-│   ├── build.gradle.kts            # Konfigurasi build level modul
-...
+└── app/
+    └── src/main/java/com/hackathon/temantidur/
+        ├── 🔧 common/           # Shared utilities & models
+        ├── 🗄️ data/             # Data layer
+        │   ├── auth/            # Authentication data source
+        │   ├── chat/            # Chat data management  
+        │   └── emotion/         # Emotion detection data
+        ├── 💉 di/               # Dependency injection modules
+        ├── 💼 domain/           # Business logic layer
+        │   ├── entities/        # Data models
+        │   ├── repositories/    # Repository interfaces
+        │   └── usecases/        # Use case implementations
+        ├── 🎨 presentation/     # UI layer
+        │   ├── auth/            # Login/Register screens
+        │   ├── chat/            # Chat interface
+        │   ├── emotion/         # Emotion detection UI
+        │   ├── mainmenu/        # Main navigation
+        │   ├── onboarding/      # First-time user experience
+        │   ├── recommendation/  # Content recommendations
+        │   ├── sidemenu/        # Side navigation drawer
+        │   ├── splash/          # App launch screen
+        │   └── voicechat/       # Voice interaction UI
+        ├── 📡 receivers/        # Broadcast receivers
+        ├── 🔄 services/         # Background services
+        ├── 🛠️ utils/            # Helper classes
+        └── 📱 widgets/          # Home screen widgets
+```
 
+---
 
-## Kontributor
+## 🤝 Contributing
 
-Terima kasih kepada tim yang telah berkontribusi dalam pengembangan aplikasi ini:
+Kami menyambut kontribusi dari developer lain! Silakan:
 
-- **Product Manager**: [Rayhan Al Farassy]
-- **UI/UX Designer**: [Rayhan Al Farassy], [Agus Syuhada]
-- **Android Developer**: [Agus Syuhada1], [M Hashfi Fanny AYD]
-- **Cloud Engineer**: [Rayhan Al Farassy]
+1. Fork repository ini
+2. Buat feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit perubahan (`git commit -m 'Add some AmazingFeature'`)
+4. Push ke branch (`git push origin feature/AmazingFeature`)
+5. Buka Pull Request
+
+---
+
+## 👥 Team
+
+| Role | Member |
+|------|--------|
+| 📋 **Product Manager** | [Rayhan Al Farassy](https://github.com/rayhan-al-farassy) |
+| 🎨 **UI/UX Designer** | [Rayhan Al Farassy](https://github.com/rayhan-al-farassy), [Agus Syuhada](https://github.com/agus-syuhada) |
+| 📱 **Android Developer** | [Agus Syuhada](https://github.com/agus-syuhada), [M Hashfi Fanny AYD](https://github.com/hashfifanny) |
+| ☁️ **Cloud Engineer** | [Rayhan Al Farassy](https://github.com/rayhan-al-farassy) |
+
+---
+
+## 📄 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+---
+
+## 📞 Support
+
+Jika Anda memiliki pertanyaan atau masalah:
+
+- 🐛 **Bug Reports**: [Issues](https://github.com/aripov21/TemanTidur/issues)
+- 💡 **Feature Requests**: [Discussions](https://github.com/aripov21/TemanTidur/discussions)
+- 📧 **Email**: support@temantidur.app
+
+---
+
+<div align="center">
+  
+  **⭐ Jangan lupa berikan star jika project ini membantu! ⭐**
+  
+  Made with ❤️ in Indonesia
+  
+</div>
