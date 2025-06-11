@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.core.net.toUri
 import androidx.fragment.app.Fragment
+import com.hackathon.temantidur.BuildConfig
 import com.hackathon.temantidur.R
 import com.hackathon.temantidur.databinding.FragmentAboutUsBinding
 
@@ -28,6 +29,7 @@ class AboutUsFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        binding.tvAppVersion.text = getString(R.string.app_version, BuildConfig.VERSION_NAME)
         binding.navProfile1.contentDescription =
             getString(R.string.github_profile_of_person_1, getString(R.string.people_1))
         binding.navProfile2.contentDescription =

@@ -80,7 +80,7 @@
     <string name="about_us">Tentang Kami</string>
     <string name="logout">Keluar</string>
     <string name="daily_reminder">Pengingat Harian</string>
-    <string name="app_version">Veri Aplikasi 1.0</string>
+    <string name="app_version">Veri Aplikasi %1$s</string>
 
     <!--  Change Password  -->
     <string name="change_password_title">Ubah Kata Sandi</string>

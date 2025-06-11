@@ -72,7 +72,7 @@
     <string name="about_us">About Us</string>
     <string name="logout">Logout</string>
     <string name="daily_reminder">Daily Reminder</string>
-    <string name="app_version">App Version 1.0</string>
+    <string name="app_version">App Version %1$s</string>
 
     <!--  Change Password  -->
     <string name="change_password_title">Change Password</string>

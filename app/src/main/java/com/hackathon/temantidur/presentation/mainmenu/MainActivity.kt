@@ -54,6 +54,7 @@ import java.util.Calendar
 import java.util.Locale
 import androidx.activity.viewModels
 import androidx.lifecycle.lifecycleScope
+import com.hackathon.temantidur.BuildConfig
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 
@@ -440,6 +441,7 @@ class MainActivity : AppCompatActivity(), ToolbarVisibilityListener,
     }
 
     private fun setupSidebarNavigation() {
+        drawerMenuBinding.tvAppVersion.text = getString(R.string.app_version, BuildConfig.VERSION_NAME)
         drawerMenuBinding.navProfile.setOnClickListener {
             binding.drawerLayout.closeDrawer(GravityCompat.END)
             replaceFragment(ProfileFragment(), showToolbar = false, tag = "ProfileFragment")
@@ -915,9 +917,13 @@ class MainActivity : AppCompatActivity(), ToolbarVisibilityListener,
                 && Math.abs(diffX) > SWIPE_THRESHOLD
                 && Math.abs(velocityX) > SWIPE_VELOCITY_THRESHOLD
             ) {
-                if (diffX > 0) {
+                if (diffX > 0) { // Swipe Right
                     Log.d("SwipeGesture", "Swipe Right detected, calling onBackPressed")
                     onBackPressed()
+                    return true
+                } else { // Swipe Left
+                    Log.d("SwipeGesture", "Swipe Left detected, opening drawer")
+                    binding.drawerLayout.openDrawer(GravityCompat.END)
                     return true
                 }
             }
